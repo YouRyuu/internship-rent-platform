@@ -9,7 +9,7 @@ create table `user`(
     `nickname` varchar(20),
     `email` varchar(50),
     `identify_code` varchar(20),
-    `type` varchar(20),
+    `utype` varchar(20),
     `icon` varchar(255),
     primary key (`uuid`) using btree
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 ROW_FORMAT=DYNAMIC;
