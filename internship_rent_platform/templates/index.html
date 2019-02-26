@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+</head>
+<body>
+    <!--if login-->
+    {% if name %}
+        welcome! {{ name }}<br>
+        <a href="/logout">exit</a><br>
+        <a href="/change_pwd">change password</a><br>
+    <!--not login -->
+    {% else %}
+        <a href="/login">login</a><br>
+        <a href="/register">register</a><br>
+    {% endif %}
+    <a href="/index">index</a><br>
+
+
+    <input type="text" value="search">
+    <input type="submit" value="search">
+    {{ msg }}
+</body>
+</html>
