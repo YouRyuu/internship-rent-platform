@@ -220,26 +220,21 @@ def search_room(request):
     楼层: <input type="text" name="search_floor"> <br>
     是否合租: <p>是：<input type="radio" name="hz" value="1"></p>
              <p>否：<input type="radio" name="hz"  value="0"></p><br>
-    :param request:
-    :return:
-    user = User.objects.raw('select * from rent_platform')
-    user = user[0]
-    user.tel
-
     '''
     room_type_dict = {'11': '一室一厅', '21': '二室一厅', '31': '三室一厅', '41': '四室一厅', '42': '四室二厅'}
 
     if request.method == 'POST':
         search_city = request.POST.get('search_city')
-        search_type = request.POST.get('roomtype')
+        search_type = room_type_dict[request.POST.get('roomtype')]
         search_price = request.POST.get('price')
         search_floor = request.POST.get('search_floor')
         search_hz = request.POST.get('hz')
-        print(search_type)
-        search_type = room_type_dict[search_type]
-        rooms = Room.objects.raw(
-            '''select uuid from rent_platform_room where city like %{}% and type like %{}% and rent_amount<{} and is_co_rent = int({})'''
-                .format(search_city, search_type, search_price, search_hz))
+        if search_floor is '':
+            rooms = Room.objects.filter(city__contains=search_city, house_type__contains=search_type,
+                                        rent_amount__lt=search_price, is_co_rent__contains=search_hz)
+        else:
+            rooms = Room.objects.filter(city__contains=search_city, house_type__contains=search_type,
+                                        rent_amount__lt=search_price, is_co_rent=search_hz, floor=search_floor)
         if len(rooms) > 0:
             return render(request, 'rooms_msg.html', {'rooms': rooms})
         return HttpResponse('not result')
