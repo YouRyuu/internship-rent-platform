@@ -15,5 +15,6 @@ urlpatterns = [
     url(r'^release_rent_msg$', views.release_rent_msg),
     url(r'^user_msg$', views.show_user_msg),
     url(r'^rooms_msg$', views.show_all_rent_msg),
+    url(r'^search_room$', views.search_room),
 
 ]

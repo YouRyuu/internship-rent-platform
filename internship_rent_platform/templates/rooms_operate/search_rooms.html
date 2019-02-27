@@ -5,15 +5,22 @@
     <title>Title</title>
 </head>
 <body>
-<form action="" method="post">
+<form action="/search_room" method="post">
     筛选条件: <br>
-    地理位置: <input type="text" name="search_locate"> <br>
-    户型: <input type="text" name="search_type"> <br>
-    价格: <input type="text" name="search_price"> <br>
+    地理位置: 城市<input type="text" name="search_city"> <br>
+    户型: <p>一室一厅：<input type="radio" name="roomtype" value="11"></p>
+         <p>二室一厅：<input type="radio" name="roomtype"  value="21"></p>
+         <p>三室一厅：<input type="radio" name="roomtype"  value="31"></p>
+         <p>四室一厅：<input type="radio" name="roomtype"  value="41"></p>
+         <p>四室二厅：<input type="radio" name="roomtype"  value="42"></p>
+    价格: <p>0~1000<input type="radio" name="price" value="1000"></p>
+         <p>1001~2000<input type="radio" name="price"  value="2000"></p>
+         <p>2001~3000<input type="radio" name="price"  value="3000"></p>
+         <p>3001~4000<input type="radio" name="price"  value="4000"></p>
+         <p>4000+<input type="radio" name="price"  value="4001"></p>
     楼层: <input type="text" name="search_floor"> <br>
-    是否合租: <p>是：<input type="radio" name="type" value="1"></p>
-             <p>否：<input type="radio" name="type"  value="0"></p><br>
-    可租月数: <input type="text" name="search_month"> <br>
+    是否合租: <p>是：<input type="radio" name="hz" value="1"></p>
+             <p>否：<input type="radio" name="hz"  value="0"></p><br>
     <input type="submit" value="submit">
 </form>
 </body>

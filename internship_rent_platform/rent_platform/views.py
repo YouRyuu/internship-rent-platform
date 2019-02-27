@@ -201,23 +201,46 @@ def show_all_rent_msg(request):
     rooms = Room.objects.all()
     return render(request, 'rooms_msg.html', {'rooms': rooms})
 
+
 def search_room(request):
     '''
-    地理位置: <input type="text" name="search_locate"> <br>
-    户型: <input type="text" name="search_type"> <br>
-    价格: <input type="text" name="search_price"> <br>
+    筛选条件: <br>
+    地理位置: 城市<input type="text" name="search_city"> <br>
+            小区<input type="text" name="search_community"> <br>
+    户型: <p>1shi1ting：<input type="radio" name="type" value="11"></p>
+         <p>2shi1ting：<input type="radio" name="type"  value="21"></p>
+         <p>3shi1ting：<input type="radio" name="type"  value="31"></p>
+         <p>4shi1ting：<input type="radio" name="type"  value="41"></p>
+         <p>4shi2ting：<input type="radio" name="type"  value="42"></p>
+    价格: <p>0~1000<input type="radio" name="price" value="1000"></p>
+         <p>1001~2000<input type="radio" name="price"  value="2000"></p>
+         <p>2001~3000<input type="radio" name="price"  value="3000"></p>
+         <p>3001~4000<input type="radio" name="price"  value="4000"></p>
+         <p>4000+<input type="radio" name="price"  value="4001"></p>
     楼层: <input type="text" name="search_floor"> <br>
-    是否合租: <p>是：<input type="radio" name="type" value="1"></p>
-             <p>否：<input type="radio" name="type"  value="0"></p><br>
-    可租月数: <input type="text" name="search_month"> <br>
+    是否合租: <p>是：<input type="radio" name="hz" value="1"></p>
+             <p>否：<input type="radio" name="hz"  value="0"></p><br>
     :param request:
     :return:
-    '''
-    if request.method == 'POST':
-        locate = request.POST.get('search_locate')
-        type = request.POST.get('search_type')
-        price = request.POST.get('search_price')
-        floor = request.POST.get('search_floor')
-        togather = request.POST.get('type')
-        month = request.POST.get('search_month')
+    user = User.objects.raw('select * from rent_platform')
+    user = user[0]
+    user.tel
 
+    '''
+    room_type_dict = {'11': '一室一厅', '21': '二室一厅', '31': '三室一厅', '41': '四室一厅', '42': '四室二厅'}
+
+    if request.method == 'POST':
+        search_city = request.POST.get('search_city')
+        search_type = request.POST.get('roomtype')
+        search_price = request.POST.get('price')
+        search_floor = request.POST.get('search_floor')
+        search_hz = request.POST.get('hz')
+        print(search_type)
+        search_type = room_type_dict[search_type]
+        rooms = Room.objects.raw(
+            '''select uuid from rent_platform_room where city like %{}% and type like %{}% and rent_amount<{} and is_co_rent = int({})'''
+                .format(search_city, search_type, search_price, search_hz))
+        if len(rooms) > 0:
+            return render(request, 'rooms_msg.html', {'rooms': rooms})
+        return HttpResponse('not result')
+    return render(request, 'rooms_operate/search_rooms.html')

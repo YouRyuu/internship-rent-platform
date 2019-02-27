@@ -46,6 +46,7 @@ class Room(models.Model):
     location = models.CharField(max_length=20)
     city = models.CharField(max_length=20)
     district = models.CharField(max_length=20)
+    house_type = models.CharField(max_length=20, null=True)
     rent_amount = models.CharField(max_length=20)
     latitude = models.CharField(max_length=20)
     longtitude = models.CharField(max_length=20)
@@ -126,3 +127,4 @@ class Img(models.Model):
     '''
     room_id = models.CharField(max_length=50)
     url = models.CharField(max_length=255)
+
