@@ -1,23 +1,21 @@
 ## 产品原型
 ### 功能需求
 - 功能
-    - 登录
-    - 注册
-    - 找回密码
-    - 信息修改
-    - 发布房源
-    - 搜索
+    - 登录 
+    - 注册 
+    - 找回密码 
+    - 信息修改 
+    - 发布房源 
+    - 搜索 
     - 筛选
         - 根据条件
             - 地理位置
                 - 城市
-                - 商圈
                 - 小区
             - 户型
             - 价格
             - 楼层
             - 是否合租
-            - 可租月数
     - 租赁
         - 订单
         - 支付
@@ -27,7 +25,6 @@
             - 一式三份
     - 退租
     - 交流
-        - 聊天
         - 留言
     - 查看房源详情
         - 附近
@@ -95,7 +92,7 @@
 |city|varchar(20)|房屋城市|
 |district|varchar(20)|所在区|
 |house_type|varchar(20)|房屋类型|
-|rent_amount|varchar(20)|租金价格|
+|rent_amount|int|租金价格|
 |latitude|varchar(20)|纬度|
 |longtitude|varchar(20)|经度|
 |size|varchar(20)|房屋大小|
@@ -103,7 +100,8 @@
 |detail|varchar(255)|房屋细节|
 |rank|varchar(20)|房屋排名|
 |name|varchar(20)|房屋名称|
-|state|varchar(20)|房屋状态(发布是否成功)|
+|state|varchar(20)|房屋状态(发布是否成功)|  
+|floor|int|楼层|
 
 - 订单信息
 

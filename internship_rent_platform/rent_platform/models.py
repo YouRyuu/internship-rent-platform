@@ -47,7 +47,7 @@ class Room(models.Model):
     city = models.CharField(max_length=20)
     district = models.CharField(max_length=20)
     house_type = models.CharField(max_length=20, null=True)
-    rent_amount = models.CharField(max_length=20)
+    rent_amount = models.IntegerField(null=True)
     latitude = models.CharField(max_length=20)
     longtitude = models.CharField(max_length=20)
     size = models.CharField(max_length=20)
@@ -56,6 +56,7 @@ class Room(models.Model):
     rank = models.CharField(max_length=20)
     name = models.CharField(max_length=20)
     state = models.CharField(max_length=20)
+    floor = models.IntegerField(null=True)
 
 
 class Order(models.Model):
@@ -70,7 +71,7 @@ class Order(models.Model):
     user_id = models.CharField(max_length=50, null=False)
     room_id = models.CharField(max_length=50, null=False)
     create_time = models.DateField()
-    rent_time = models.CharField(max_length=20)
+    rent_time = models.DateField()
 
 
 class Message(models.Model):
