@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>rooms list</title>
+</head>
+<body>
+
+    {% for room in rooms %}
+        <ul>
+        <li>房屋id:{{ room.id }}</li>
+        <li>城市:{{ room.city }}</li>
+        <li>区:{{ room.district }}</li>
+        <li>地点:{{ room.location }}</li>
+        <li>价格:{{ room.rent_amount }}</li>
+        <li>名称:{{ room.name }}</li>
+        </ul>
+    {% endfor %}
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edit user's message</title>
+</head>
+<body>
+{{ msg }}
+    edit user's message
+    <form action="/edit_user_msg" method="post">
+        nickname: <input type="text" name="nickname" value="{{ user_name }}"> <br>
+        email: <input type="text" name="email" value="{{ user_email }}"> <br>
+        idcard: <input type="text" name="idcard" value="{{ user_idcard }}"> <br>
+        type:<p>租户：<input type="radio" name="type" value="1"></p>
+             <p>房东：<input type="radio" name="type"  value="0"></p>
+        icon: <input type="text" name="icon" value="{{ user_icon }}"> <br>
+        tel: <input type="text" name="tel" value="{{ user_tel }}"> <br>
+        <input type="submit" value="edit">
+    </form>
+</body>
+</html>
