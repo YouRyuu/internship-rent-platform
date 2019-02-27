@@ -114,13 +114,14 @@ def find_pwd(request):
 
 @login_required
 def edit_user_msg(request):
+    user = User.objects.filter(tel=request.session.get('tel'))
     if request.method == 'POST':
+        print(user)
         nickname = request.POST['nickname']
         email = request.POST['email']
         idcard = request.POST['idcard']
         type = request.POST.get('type')
         icon = request.POST['icon']
-        user = User.objects.filter(tel=request.session.get('tel'))
         if not any([nickname, email, idcard, type, icon]):
             return render(request, 'edit_user_msg.html', {'msg': 'please input data'})
         try:
@@ -131,12 +132,19 @@ def edit_user_msg(request):
             return render(request, 'edit_user_msg.html', {'msg': 'success edit message'})
         return render(request, 'edit_user_msg.html', {'msg': 'error data'})
     else:
-        return render(request, 'edit_user_msg.html')
+        user = user[0]
+        user_msg = {'user_name': user.nickname, 'user_tel': user.tel, 'user_email': user.email, 'user_icon': user.icon,
+                    'user_idcard': user.identify_code}
+        return render(request, 'edit_user_msg.html', user_msg)
 
 
 @login_required
 def show_user_msg(request):
-    pass
+    user_tel = request.session.get('tel')
+    user = User.objects.filter(tel=user_tel)
+    user = user[0]
+    user_msg = {'user_name': user.nickname, 'user_tel': user.tel, 'user_email': user.email, 'user_icon': user.icon}
+    return render(request, 'user_msg.html', user_msg)
 
 
 @login_required
@@ -172,8 +180,8 @@ def release_rent_msg(request):
         room_size = request.POST.get('room_size')
         room_detail = request.POST.get('room_detail')
         room_name = request.POST.get('room_name')
-        #deal room message
-        rentee_id =rentee[0].id
+        # deal room message
+        rentee_id = rentee[0].id
         room = Room()
         room.location = room_location
         room.user_id = rentee_id
@@ -186,7 +194,30 @@ def release_rent_msg(request):
         room.name = room_name
         room.save()
         return HttpResponse('release ok!')
-    return render(request, 'release_rent_msg.html', {'rentee_name':rentee_nickname})
+    return render(request, 'release_rent_msg.html', {'rentee_name': rentee_nickname})
 
 
+def show_all_rent_msg(request):
+    rooms = Room.objects.all()
+    return render(request, 'rooms_msg.html', {'rooms': rooms})
+
+def search_room(request):
+    '''
+    地理位置: <input type="text" name="search_locate"> <br>
+    户型: <input type="text" name="search_type"> <br>
+    价格: <input type="text" name="search_price"> <br>
+    楼层: <input type="text" name="search_floor"> <br>
+    是否合租: <p>是：<input type="radio" name="type" value="1"></p>
+             <p>否：<input type="radio" name="type"  value="0"></p><br>
+    可租月数: <input type="text" name="search_month"> <br>
+    :param request:
+    :return:
+    '''
+    if request.method == 'POST':
+        locate = request.POST.get('search_locate')
+        type = request.POST.get('search_type')
+        price = request.POST.get('search_price')
+        floor = request.POST.get('search_floor')
+        togather = request.POST.get('type')
+        month = request.POST.get('search_month')
 
