@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发布房源</title>
+</head>
+<body>
+发布房源 <br>
+<form action="/release_rent_msg" method="post">
+    房东:{{ rentee_name }} <br>
+    房屋地址: <input type="text" name="room_location"> <br>
+    房屋城市: <input type="text" name="room_city"> <br>
+    所在区: <input type="text" name="room_district"> <br>
+    房屋类型: <input type="text" name="room_type"> <br>
+    租金价格: <input type="text" name="room_rent_amount"> <br>
+    <!-- 纬度-->:
+    <!-- 经度:-->
+    房屋大小: <input type="text" name="room_size"> <br>
+    <!--是否合租-->:
+    房屋细节: <input type="text" name="room_detail"> <br>
+    <!--房屋排名:-->
+    房屋名称: <input type="text" name="room_name"> <br>
+    <!--房屋状态(发布是否成功):-->
+    <input type="submit" value="发布">
+</form>
+</body>
+</html>

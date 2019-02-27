@@ -5,9 +5,10 @@
     <title>index</title>
 </head>
 <body>
+<!--user basic operate-->
     <!--if login-->
-    {% if name %}
-        welcome! {{ name }}<br>
+    {% if tel %}
+        welcome! {{ tel }}<br>
         <a href="/logout">exit</a><br>
         <a href="/change_pwd">change password</a><br>
     <!--not login -->
@@ -17,9 +18,15 @@
     {% endif %}
     <a href="/index">index</a><br>
 
+    <a href="/edit_user_msg">edit message</a> <br>
 
-    <input type="text" value="search">
-    <input type="submit" value="search">
-    {{ msg }}
+
+<!-- user advance operate -->
+    <p>
+        <a href="/release_rent_msg">发布房源</a> <br>
+        <input type="text" value="search">
+        <input type="submit" value="搜索"> <br>
+
+    </p>
 </body>
 </html>
