@@ -8,9 +8,10 @@
 <!--user basic operate-->
     <!--if login-->
     {% if tel %}
-        welcome! {{ tel }}<br>
+        welcome! <a href="/user_msg">{{ tel }}</a> <br>
         <a href="/logout">exit</a><br>
         <a href="/change_pwd">change password</a><br>
+        <a href="/order_list">my order</a> <br>
     <!--not login -->
     {% else %}
         <a href="/login">login</a><br>
@@ -26,7 +27,7 @@
         <a href="/release_rent_msg">发布房源</a> <br>
         <input type="text" value="search">
         <input type="submit" value="搜索"> <br>
-        <a href="#">查询房屋</a>
+        <a href="/rooms_msg">查询房屋</a>
     </p>
 </body>
 </html>

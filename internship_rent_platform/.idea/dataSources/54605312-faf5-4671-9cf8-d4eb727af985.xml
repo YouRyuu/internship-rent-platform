@@ -1671,13 +1671,11 @@ model</ColNames>
     <column id="383" parent="248" name="content">
       <Position>4</Position>
       <DataType>varchar(1024)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="384" parent="248" name="post_time">
       <Position>5</Position>
       <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="385" parent="248" name="PRIMARY">
@@ -1707,13 +1705,11 @@ model</ColNames>
     <column id="389" parent="249" name="content">
       <Position>4</Position>
       <DataType>varchar(1024)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="390" parent="249" name="create_time">
       <Position>5</Position>
       <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="391" parent="249" name="PRIMARY">
@@ -1767,13 +1763,11 @@ model</ColNames>
     <column id="399" parent="251" name="content">
       <Position>4</Position>
       <DataType>varchar(1024)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="400" parent="251" name="post_time">
       <Position>5</Position>
       <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <key id="401" parent="251" name="PRIMARY">
@@ -1803,164 +1797,156 @@ model</ColNames>
     <column id="405" parent="252" name="create_time">
       <Position>4</Position>
       <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
     <column id="406" parent="252" name="rent_time">
       <Position>5</Position>
       <DataType>date|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="407" parent="252" name="PRIMARY">
+    <column id="407" parent="252" name="is_over">
+      <Position>6</Position>
+      <DataType>int(11)|0s</DataType>
+      <ColumnKind>normal</ColumnKind>
+    </column>
+    <key id="408" parent="252" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="408" parent="253" name="id">
+    <column id="409" parent="253" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="409" parent="253" name="user_id">
+    <column id="410" parent="253" name="user_id">
       <Position>2</Position>
       <DataType>varchar(50)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="410" parent="253" name="location">
+    <column id="411" parent="253" name="location">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="411" parent="253" name="city">
+    <column id="412" parent="253" name="city">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="412" parent="253" name="district">
+    <column id="413" parent="253" name="district">
       <Position>5</Position>
       <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="413" parent="253" name="latitude">
+    <column id="414" parent="253" name="latitude">
       <Position>6</Position>
       <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="414" parent="253" name="longtitude">
+    <column id="415" parent="253" name="longtitude">
       <Position>7</Position>
       <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="415" parent="253" name="size">
+    <column id="416" parent="253" name="size">
       <Position>8</Position>
       <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="416" parent="253" name="is_co_rent">
+    <column id="417" parent="253" name="is_co_rent">
       <Position>9</Position>
       <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="417" parent="253" name="detail">
+    <column id="418" parent="253" name="detail">
       <Position>10</Position>
       <DataType>varchar(255)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="418" parent="253" name="rank">
+    <column id="419" parent="253" name="rank">
       <Position>11</Position>
       <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="419" parent="253" name="name">
+    <column id="420" parent="253" name="name">
       <Position>12</Position>
       <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="420" parent="253" name="state">
+    <column id="421" parent="253" name="state">
       <Position>13</Position>
       <DataType>varchar(20)|0s</DataType>
-      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="421" parent="253" name="house_type">
+    <column id="422" parent="253" name="house_type">
       <Position>14</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="422" parent="253" name="floor">
+    <column id="423" parent="253" name="floor">
       <Position>15</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="423" parent="253" name="rent_amount">
+    <column id="424" parent="253" name="rent_amount">
       <Position>16</Position>
       <DataType>int(11)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="424" parent="253" name="PRIMARY">
+    <key id="425" parent="253" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="425" parent="254" name="id">
+    <column id="426" parent="254" name="id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="426" parent="254" name="tel">
+    <column id="427" parent="254" name="tel">
       <Position>2</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="427" parent="254" name="passwd">
+    <column id="428" parent="254" name="passwd">
       <Position>3</Position>
       <DataType>varchar(20)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="428" parent="254" name="nickname">
+    <column id="429" parent="254" name="nickname">
       <Position>4</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="429" parent="254" name="email">
+    <column id="430" parent="254" name="email">
       <Position>5</Position>
       <DataType>varchar(50)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="430" parent="254" name="identify_code">
+    <column id="431" parent="254" name="identify_code">
       <Position>6</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="431" parent="254" name="utype">
+    <column id="432" parent="254" name="utype">
       <Position>7</Position>
       <DataType>varchar(20)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="432" parent="254" name="icon">
+    <column id="433" parent="254" name="icon">
       <Position>8</Position>
       <DataType>varchar(255)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <key id="433" parent="254" name="PRIMARY">
+    <key id="434" parent="254" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>

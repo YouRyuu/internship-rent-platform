@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import *
+import time
 
 
 def login_required(func):
@@ -27,6 +28,7 @@ def index(request):
     return render(request, 'index.html', test)
 
 
+# user operation
 def login(request):
     if request.method == 'POST':
         tel = request.POST['tel']
@@ -116,7 +118,6 @@ def find_pwd(request):
 def edit_user_msg(request):
     user = User.objects.filter(tel=request.session.get('tel'))
     if request.method == 'POST':
-        print(user)
         nickname = request.POST['nickname']
         email = request.POST['email']
         idcard = request.POST['idcard']
@@ -147,6 +148,7 @@ def show_user_msg(request):
     return render(request, 'user_msg.html', user_msg)
 
 
+# room operation
 @login_required
 def release_rent_msg(request):
     '''
@@ -181,6 +183,9 @@ def release_rent_msg(request):
         room_detail = request.POST.get('room_detail')
         room_name = request.POST.get('room_name')
         # deal room message
+        if not all([room_location, room_city, room_district, room_type, room_rent_amount, room_size, room_detail,
+                    room_name]):
+            return HttpResponse('please complete data!')
         rentee_id = rentee[0].id
         room = Room()
         room.location = room_location
@@ -239,3 +244,37 @@ def search_room(request):
             return render(request, 'rooms_msg.html', {'rooms': rooms})
         return HttpResponse('not result')
     return render(request, 'rooms_operate/search_rooms.html')
+
+
+@login_required
+def rent_room(request):
+    if request.method == 'POST':
+        user_tel = request.session.get('tel')
+        room_id = request.POST.get('room_id')
+        rent_time = request.POST.get('rent_time')
+        user_id = User.objects.filter(tel=user_tel)[0].id
+        is_exist = Order.objects.filter(user_id=user_id, room_id=room_id)
+        if len(is_exist) > 0:
+            return HttpResponse('you have already rent this room!')
+        create_time = time.strftime('%Y-%m-%d', time.localtime(time.time()))
+        order = Order()
+        order.room_id = room_id
+        order.user_id = user_id
+        order.create_time = create_time
+        order.rent_time = rent_time
+        order.save()
+        return HttpResponse('ok')
+    return render(request, 'rent_room.html')
+
+
+@login_required
+def order_list(request):
+    user_tel = request.session.get('tel')
+    user_id = User.objects.filter(tel=user_tel)[0].id
+    orders = Order.objects.filter(user_id=user_id)
+    return render(request, 'order_list.html', {'orders': orders})
+
+@login_required
+def exit_rent(request):
+    '''退租'''
+    pass

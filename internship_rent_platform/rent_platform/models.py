@@ -42,20 +42,20 @@ class Room(models.Model):
     `state` varchar(20),
     primary key (`uuid`) using btree
     '''
-    user_id = models.CharField(max_length=50, null=False)
-    location = models.CharField(max_length=20)
-    city = models.CharField(max_length=20)
-    district = models.CharField(max_length=20)
+    user_id = models.CharField(max_length=50)
+    location = models.CharField(max_length=20, null=True)
+    city = models.CharField(max_length=20, null=True)
+    district = models.CharField(max_length=20, null=True)
     house_type = models.CharField(max_length=20, null=True)
     rent_amount = models.IntegerField(null=True)
-    latitude = models.CharField(max_length=20)
-    longtitude = models.CharField(max_length=20)
-    size = models.CharField(max_length=20)
-    is_co_rent = models.CharField(max_length=20)
-    detail = models.CharField(max_length=255)
-    rank = models.CharField(max_length=20)
-    name = models.CharField(max_length=20)
-    state = models.CharField(max_length=20)
+    latitude = models.CharField(max_length=20, null=True)
+    longtitude = models.CharField(max_length=20, null=True)
+    size = models.CharField(max_length=20, null=True)
+    is_co_rent = models.CharField(max_length=20, null=True)
+    detail = models.CharField(max_length=255, null=True)
+    rank = models.CharField(max_length=20, null=True)
+    name = models.CharField(max_length=20, null=True)
+    state = models.CharField(max_length=20, null=True)
     floor = models.IntegerField(null=True)
 
 
@@ -70,8 +70,9 @@ class Order(models.Model):
     '''
     user_id = models.CharField(max_length=50, null=False)
     room_id = models.CharField(max_length=50, null=False)
-    create_time = models.DateField()
-    rent_time = models.DateField()
+    create_time = models.DateField(null=True)
+    rent_time = models.DateField(null=True)
+    is_over = models.IntegerField(null=True)
 
 
 class Message(models.Model):
@@ -83,10 +84,10 @@ class Message(models.Model):
     `post_time` date,
     primary key (`uuid`) using btree
     '''
-    user_id = models.CharField(max_length=50, null=False)
-    room_id = models.CharField(max_length=50, null=False)
-    content = models.CharField(max_length=1024)
-    post_time = models.DateField()
+    user_id = models.CharField(max_length=50)
+    room_id = models.CharField(max_length=50)
+    content = models.CharField(max_length=1024, null=True)
+    post_time = models.DateField(null=True)
 
 
 class Chat(models.Model):
@@ -100,8 +101,8 @@ class Chat(models.Model):
     '''
     renter_id = models.CharField(max_length=50, null=False)
     rentee_id = models.CharField(max_length=50, null=False)
-    content = models.CharField(max_length=1024)
-    post_time = models.DateField()
+    content = models.CharField(max_length=1024, null=True)
+    post_time = models.DateField(null=True)
 
 
 class Comment(models.Model):
@@ -115,8 +116,8 @@ class Comment(models.Model):
     '''
     renter_id = models.CharField(max_length=50, null=False)
     rentee_id = models.CharField(max_length=50, null=False)
-    content = models.CharField(max_length=1024)
-    create_time = models.DateField()
+    content = models.CharField(max_length=1024, null=True)
+    create_time = models.DateField(null=True)
 
 
 class Img(models.Model):

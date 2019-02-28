@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>order list</title>
+</head>
+<body>
+<ul>
+    {% for order in orders %}
+        <li>{{ order.room_id }} <br>
+            {{ order.create_time }} <br>
+            {{ order.rent_time }} <br>
+            <a href="#">退租</a>
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>

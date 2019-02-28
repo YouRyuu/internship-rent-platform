@@ -111,7 +111,8 @@
 |user_id|varchar(50)|租客id|
 |room_id|varchar(50)|房间id|
 |create_time|date|订单创建时间|
-|rent_time|varchar(20)|租赁时长|
+|rent_time|varchar(20)|租赁时长|  
+|is_over|int|over|  
 
 - 留言
 
@@ -150,3 +151,23 @@
 |uuid|varchar(50)|主键|
 |room_id|varchar(50)|房屋主键|
 |url|varchar(255)|图片url|
+
+
+### url design  
+  
+user:  
+/user/user_msg  
+/user/edit_user_msg  
+/user/change_pwd
+/user/order_list
+  
+visitor:  
+/index/register  
+/index/login  
+  
+room:  
+/room/rooms_msg
+/room/rooms_msg/(room's id)
+/room/search_room
+/room/release_room
+/room/rent_room/

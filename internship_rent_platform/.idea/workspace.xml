@@ -43,14 +43,7 @@
         <item name="@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="internship_rent_platform: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="rent_platform_room: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="internship_rent_platform: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="rent_platform_user: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="rent_platform_order: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -63,8 +56,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/rent_platform/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+            <state relative-caret-position="573">
+              <caret line="129" column="35" lean-forward="true" selection-start-line="129" selection-start-column="35" selection-end-line="129" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -78,11 +71,32 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="141">
+              <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rent_platform/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="456">
+              <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/rent_platform/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="222" selection-start-line="222" selection-end-line="222" />
+            <state relative-caret-position="2520">
+              <caret line="269" column="13" selection-start-line="269" selection-start-column="13" selection-end-line="269" selection-end-column="13" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
                 <element signature="e#137#391#0" />
@@ -92,34 +106,47 @@
                 <element signature="e#2316#3143#0" />
                 <element signature="e#3171#3224#0" />
                 <element signature="e#3254#3918#0" />
+                <element signature="e#3969#5023#0" />
+                <element signature="e#5074#5345#0" />
+                <element signature="e#5399#7140#0" />
+                <element signature="e#7179#7268#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/rooms_operate/search_rooms.html">
+        <entry file="file://$PROJECT_DIR$/templates/order_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="384">
-              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+            <state relative-caret-position="288">
+              <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/login.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+        <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_order">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/index.html">
+        <entry file="file://$PROJECT_DIR$/templates/rent_room.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="672">
-              <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
+            <state>
+              <caret column="15" lean-forward="true" selection-start-column="15" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_user">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -129,8 +156,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -148,14 +175,16 @@
         <option value="$PROJECT_DIR$/templates/release_rent_msg.html" />
         <option value="$PROJECT_DIR$/templates/user_msg.html" />
         <option value="$PROJECT_DIR$/templates/edit_user_msg.html" />
-        <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/templates/rooms_msg.html" />
         <option value="$PROJECT_DIR$/A.py" />
-        <option value="$PROJECT_DIR$/rent_platform/urls.py" />
-        <option value="$PROJECT_DIR$/rent_platform/models.py" />
         <option value="$PROJECT_DIR$/templates/rooms_operate/search_rooms.html" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/54605312-faf5-4671-9cf8-d4eb727af985/console.sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/templates/rooms_msg.html" />
+        <option value="$PROJECT_DIR$/rent_platform/models.py" />
+        <option value="$PROJECT_DIR$/templates/rent_room.html" />
+        <option value="$PROJECT_DIR$/rent_platform/urls.py" />
+        <option value="$PROJECT_DIR$/templates/index.html" />
+        <option value="$PROJECT_DIR$/templates/order_list.html" />
         <option value="$PROJECT_DIR$/rent_platform/views.py" />
       </list>
     </option>
@@ -302,18 +331,18 @@
       <workItem from="1551229432574" duration="5235000" />
       <workItem from="1551241251381" duration="3306000" />
       <workItem from="1551248360540" duration="8226000" />
-      <workItem from="1551261174570" duration="7071000" />
+      <workItem from="1551261174570" duration="7945000" />
+      <workItem from="1551313232198" duration="4442000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48144000" />
+    <option name="totallyTimeSpent" value="53460000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11995578" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12106136" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -327,7 +356,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5002764" side_tool="true" weight="0.22940563" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.4997236" visible="true" weight="0.22314912" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.4997236" visible="true" weight="0.22314912" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.3295099" />
       <window_info anchor="bottom" id="Database Console" order="13" weight="0.3295099" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -343,13 +372,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/rooms_msg.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/release_rent_msg.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -364,209 +386,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="28" column="28" selection-start-line="28" selection-start-column="28" selection-end-line="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_user">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rent_platform/migrations/0002_auto_20190226_0946.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-27">
-          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rent_platform/migrations/0004_auto_20190227_1144.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rent_platform/migrations/0003_room_house_type.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_user" />
+    <entry file="file://$PROJECT_DIR$/rent_platform/migrations/0002_auto_20190226_0946.py" />
+    <entry file="file://$PROJECT_DIR$/rent_platform/migrations/0004_auto_20190227_1144.py" />
+    <entry file="file://$PROJECT_DIR$/rent_platform/migrations/0003_room_house_type.py" />
     <entry file="file://$PROJECT_DIR$/rent_platform/migrations/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -584,10 +407,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room" />
+    <entry file="file://$PROJECT_DIR$/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="10" column="20" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
         </state>
       </provider>
     </entry>
@@ -612,7 +436,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
+    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_user">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -626,38 +464,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/templates/rooms_msg.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
+    <entry file="file://$PROJECT_DIR$/templates/rooms_operate/search_rooms.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" column="7" lean-forward="true" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -670,29 +487,67 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/rent_platform/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="58" column="41" selection-start-line="58" selection-start-column="41" selection-end-line="58" selection-end-column="41" />
+        <state relative-caret-position="573">
+          <caret line="129" column="35" lean-forward="true" selection-start-line="129" selection-start-column="35" selection-end-line="129" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/rooms_operate/search_rooms.html">
+    <entry file="file://$PROJECT_DIR$/templates/rent_room.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        <state>
+          <caret column="15" lean-forward="true" selection-start-column="15" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_room">
+    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_user">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
         </state>
       </provider>
     </entry>
+    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://54605312-faf5-4671-9cf8-d4eb727af985/schema/internship_rent_platform/table/rent_platform_order">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="14" column="21" lean-forward="true" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rent_platform/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/order_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="12" column="26" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/rent_platform/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="222" selection-start-line="222" selection-end-line="222" />
+        <state relative-caret-position="2520">
+          <caret line="269" column="13" selection-start-line="269" selection-start-column="13" selection-end-line="269" selection-end-column="13" />
           <folding>
             <element signature="e#0#45#0" expanded="true" />
             <element signature="e#137#391#0" />
@@ -702,6 +557,10 @@
             <element signature="e#2316#3143#0" />
             <element signature="e#3171#3224#0" />
             <element signature="e#3254#3918#0" />
+            <element signature="e#3969#5023#0" />
+            <element signature="e#5074#5345#0" />
+            <element signature="e#5399#7140#0" />
+            <element signature="e#7179#7268#0" />
           </folding>
         </state>
       </provider>
