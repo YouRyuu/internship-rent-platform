@@ -68,6 +68,11 @@ class Order(models.Model):
     `rent_time` varchar(20),
     primary key (`uuid`) using btree
     '''
+    ORDER_STATUS = (
+        (0, 'wait for pay'),
+        (1, 'wait for comment'),
+        (2, 'complete')
+    )
     user_id = models.CharField(max_length=50, null=False)
     room_id = models.CharField(max_length=50, null=False)
     create_time = models.DateField(null=True)
@@ -129,4 +134,3 @@ class Img(models.Model):
     '''
     room_id = models.CharField(max_length=50)
     url = models.CharField(max_length=255)
-

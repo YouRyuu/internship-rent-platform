@@ -14,7 +14,7 @@ def login_required(func):
         if request.session.has_key('isLogin'):
             return func(request, *args, **kwargs)
         else:
-            return redirect('/login')
+            return redirect('/user/login')
 
     return wrapper
 
@@ -49,6 +49,7 @@ def login(request):
 
 @login_required
 def change_pwd(request):
+    # need modify
     if request.method == 'POST':
         old_pwd = request.POST.get('oldpwd')
         new_pwd = request.POST.get('newpwd')
@@ -63,6 +64,7 @@ def change_pwd(request):
         if user_old_pwd_verify:
             user_old_pwd_verify.update(passwd=new_pwd)
         del request.session['isLogin']
+        # need modify
         return render(request, 'index.html', {'msg': 'change_pwd_success'})
     else:
         return render(request, 'change_pwd.html', {'username': request.session.get('nickname')})
@@ -242,7 +244,7 @@ def search_room(request):
                                         rent_amount__lt=search_price, is_co_rent=search_hz, floor=search_floor)
         if len(rooms) > 0:
             return render(request, 'rooms_msg.html', {'rooms': rooms})
-        return HttpResponse('not result')
+        return HttpResponse('<script>alert("no result")</script>')
     return render(request, 'rooms_operate/search_rooms.html')
 
 
@@ -262,6 +264,7 @@ def rent_room(request):
         order.user_id = user_id
         order.create_time = create_time
         order.rent_time = rent_time
+        order.is_over = 0
         order.save()
         return HttpResponse('ok')
     return render(request, 'rent_room.html')
@@ -272,9 +275,29 @@ def order_list(request):
     user_tel = request.session.get('tel')
     user_id = User.objects.filter(tel=user_tel)[0].id
     orders = Order.objects.filter(user_id=user_id)
-    return render(request, 'order_list.html', {'orders': orders})
+    return render(request, 'order_list.html', {'orders': orders, 'user_id':user_id})
+
 
 @login_required
 def exit_rent(request):
     '''退租'''
-    pass
+    user_id = request.POST.get('user_id')
+    room_id = request.POST.get('room_id')
+    order = Order.objects.filter(user_id=user_id, room_id=room_id)
+    if len(order) > 0:
+        if order[0].is_over == 0:
+            order = order[0]
+            order.is_over = 1
+            order.save()
+            return HttpResponse("ok")
+        else:
+            return HttpResponse("aleady exit this room!")
+    return HttpResponse("error")
+
+def room_details(request, room_id):
+    room = Room.objects.filter(id=room_id)
+    if len(room) > 0:
+        room = room[0]
+        return render(request, 'room_details.html', {'room':room})
+    return HttpResponse('error')
+

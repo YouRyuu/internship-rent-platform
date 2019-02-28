@@ -5,7 +5,7 @@
     <title>rooms list</title>
 </head>
 <body>
-    <a href="/search_room">filter rooms</a>
+    <a href="search_room">filter rooms</a>
     {% for room in rooms %}
         <ul>
         <li>房屋id:{{ room.id }}</li>
@@ -14,7 +14,7 @@
         <li>地点:{{ room.location }}</li>
         <li>价格:{{ room.rent_amount }}</li>
         <li>名称:{{ room.name }}</li>
-        <a href="#">租赁</a>
+        <a href="{{ room.id }}">租赁</a>
         </ul>
     {% endfor %}
 

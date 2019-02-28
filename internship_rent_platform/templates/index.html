@@ -8,26 +8,26 @@
 <!--user basic operate-->
     <!--if login-->
     {% if tel %}
-        welcome! <a href="/user_msg">{{ tel }}</a> <br>
-        <a href="/logout">exit</a><br>
-        <a href="/change_pwd">change password</a><br>
-        <a href="/order_list">my order</a> <br>
+        welcome! <a href="user/user_msg">{{ tel }}</a> <br>
+        <a href="user/logout">exit</a><br>
+        <a href="user/change_pwd">change password</a><br>
+        <a href="user/order_list">my order</a> <br>
     <!--not login -->
     {% else %}
-        <a href="/login">login</a><br>
-        <a href="/register">register</a><br>
+        <a href="user/login">login</a><br>
+        <a href="user/register">register</a><br>
     {% endif %}
     <a href="/index">index</a><br>
 
-    <a href="/edit_user_msg">edit message</a> <br>
-    <a href="/user_msg">user message</a>
+    <a href="user/edit_user_msg">edit message</a> <br>
+    <a href="user/user_msg">user message</a>
 
 <!-- user advance operate -->
     <p>
-        <a href="/release_rent_msg">发布房源</a> <br>
+        <a href="room/release_rent_msg">发布房源</a> <br>
         <input type="text" value="search">
         <input type="submit" value="搜索"> <br>
-        <a href="/rooms_msg">查询房屋</a>
+        <a href="room/rooms_msg">查询房屋</a>
     </p>
 </body>
 </html>
