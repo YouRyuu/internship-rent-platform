@@ -113,6 +113,7 @@
 |create_time|date|订单创建时间|
 |rent_time|varchar(20)|租赁时长|  
 |is_over|int|订单状态|(0, 'wait for pay'),(1, 'wait for comment'),(2, 'complete')  
+|status|int|1上架0下架|  
 
 
 - 留言
