@@ -1,31 +1,31 @@
 ## 产品原型
 ### 功能需求
 - 功能
-    - 登录 -
-    - 注册 -
-    - 找回密码 -
-    - 信息修改 -
-    - 发布房源 -
-    - 搜索 -
-    - 筛选-
-        - 根据条件-
-            - 地理位置-
-                - 城市-
-                - 小区-
-            - 户型-
-            - 价格-
-            - 楼层-
-            - 是否合租-
-    - 租赁 -
-        - 订单 
+    - 登录 
+    - 注册 
+    - 找回密码 
+    - 信息修改 
+    - 发布房源 
+    - 搜索 
+    - 筛选
+        - 根据条件
+            - 地理位置
+                - 城市
+                - 小区
+            - 户型
+            - 价格
+            - 楼层
+            - 是否合租
+    - 租赁 
+        - 订单      
         - 支付
             - 押金
             - 房费
         - 合同
             - 一式三份
-    - 退租 -
-    - 交流 -
-        - 留言
+    - 退租 
+    - 交流 
+        - 留言 
     - 查看房源详情
         - 附近
             - 公共设施
@@ -100,7 +100,7 @@
 |detail|varchar(255)|房屋细节|
 |rank|varchar(20)|房屋排名|
 |name|varchar(20)|房屋名称|
-|state|varchar(20)|房屋状态(发布是否成功)|  
+|state|varchar(20)|房屋状态(是否被租)|  
 |floor|int|楼层|
 
 - 订单信息
@@ -112,7 +112,8 @@
 |room_id|varchar(50)|房间id|
 |create_time|date|订单创建时间|
 |rent_time|varchar(20)|租赁时长|  
-|is_over|int|over|  
+|is_over|int|订单状态|(0, 'wait for pay'),(1, 'wait for comment'),(2, 'complete')  
+
 
 - 留言
 
@@ -151,23 +152,3 @@
 |uuid|varchar(50)|主键|
 |room_id|varchar(50)|房屋主键|
 |url|varchar(255)|图片url|
-
-
-### url design  
-  
-user:  
-/user/user_msg  
-/user/edit_user_msg  
-/user/change_pwd
-/user/order_list
-  
-visitor:  
-/index/register  
-/index/login  
-  
-room:  
-/room/rooms_msg
-/room/rooms_msg/(room's id)
-/room/search_room
-/room/release_room
-/room/rent_room/
