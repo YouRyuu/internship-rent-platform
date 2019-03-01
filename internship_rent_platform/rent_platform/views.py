@@ -167,7 +167,7 @@ def release_rent_msg(request):
     房屋细节: <input type="text" name="room_details"> <br>
     <!--房屋排名:-->
     房屋名称: <input type="text" name="room_name"> <br>
-    <!--房屋状态(发布是否成功):-->
+    <!--房屋状态():-->
     :param request:
     :return:
     '''
@@ -180,13 +180,15 @@ def release_rent_msg(request):
         room_city = request.POST.get('room_city')
         room_district = request.POST.get('room_district')
         room_type = request.POST.get('room_type')
+        is_co_rent = request.POST.get('rent_type')
+        room_floor = request.POST.get('room_floor')
         room_rent_amount = request.POST.get('room_rent_amount')
         room_size = request.POST.get('room_size')
         room_detail = request.POST.get('room_detail')
         room_name = request.POST.get('room_name')
         # deal room message
         if not all([room_location, room_city, room_district, room_type, room_rent_amount, room_size, room_detail,
-                    room_name]):
+                    room_name, room_floor]):
             return HttpResponse('please complete data!')
         rentee_id = rentee[0].id
         room = Room()
@@ -199,34 +201,62 @@ def release_rent_msg(request):
         room.size = room_size
         room.detail = room_detail
         room.name = room_name
+        room.floor = room_floor
+        room.is_co_rent = is_co_rent
+        room.status = 1
+        room.state = 0
         room.save()
         return HttpResponse('release ok!')
     return render(request, 'release_rent_msg.html', {'rentee_name': rentee_nickname})
 
 
+@login_required
+def update_rent_msg(request, room_id):
+    rentee_tel = request.session.get('tel')
+    rentee = User.objects.filter(tel=rentee_tel)
+    rentee_nickname = rentee[0].nickname
+    room_base_msg_set = Room.objects.filter(user_id=rentee[0].id, id=room_id)
+    if len(room_base_msg_set) <= 0:
+        return HttpResponse('no this room!')
+    else:
+        room_base_msg = room_base_msg_set[0]
+    if request.method == 'POST':
+        # get room message
+        room_location = request.POST.get('room_location')
+        room_city = request.POST.get('room_city')
+        room_district = request.POST.get('room_district')
+        room_type = request.POST.get('room_type')
+        is_co_rent = request.POST.get('rent_type')
+        room_floor = request.POST.get('room_floor')
+        room_rent_amount = request.POST.get('room_rent_amount')
+        room_size = request.POST.get('room_size')
+        room_detail = request.POST.get('room_detail')
+        room_name = request.POST.get('room_name')
+        # deal room message
+        if not all([room_location, room_city, room_district, room_type, room_rent_amount, room_size, room_detail,
+                    room_name]):
+            return HttpResponse('please complete data!')
+        try:
+            a = room_base_msg_set.update(location=room_location, city=room_city, district=room_district,
+                                         house_type=room_type, rent_amount=room_rent_amount, size=room_size,
+                                         detail=room_detail, name=room_name, is_co_rent=is_co_rent, floor=room_floor)
+        except:
+            a = 0
+        if a == 0:
+            return HttpResponse('error')
+        else:
+            return HttpResponse('ok')
+    return render(request, 'update_rent_msg.html', {'room_base_msg': room_base_msg})
+
+
 def show_all_rent_msg(request):
-    rooms = Room.objects.all()
+    rooms = Room.objects.filter(status=1)
     return render(request, 'rooms_msg.html', {'rooms': rooms})
 
 
 def search_room(request):
     '''
     筛选条件: <br>
-    地理位置: 城市<input type="text" name="search_city"> <br>
-            小区<input type="text" name="search_community"> <br>
-    户型: <p>1shi1ting：<input type="radio" name="type" value="11"></p>
-         <p>2shi1ting：<input type="radio" name="type"  value="21"></p>
-         <p>3shi1ting：<input type="radio" name="type"  value="31"></p>
-         <p>4shi1ting：<input type="radio" name="type"  value="41"></p>
-         <p>4shi2ting：<input type="radio" name="type"  value="42"></p>
-    价格: <p>0~1000<input type="radio" name="price" value="1000"></p>
-         <p>1001~2000<input type="radio" name="price"  value="2000"></p>
-         <p>2001~3000<input type="radio" name="price"  value="3000"></p>
-         <p>3001~4000<input type="radio" name="price"  value="4000"></p>
-         <p>4000+<input type="radio" name="price"  value="4001"></p>
-    楼层: <input type="text" name="search_floor"> <br>
-    是否合租: <p>是：<input type="radio" name="hz" value="1"></p>
-             <p>否：<input type="radio" name="hz"  value="0"></p><br>
     '''
     room_type_dict = {'11': '一室一厅', '21': '二室一厅', '31': '三室一厅', '41': '四室一厅', '42': '四室二厅'}
 
@@ -238,10 +268,11 @@ def search_room(request):
         search_hz = request.POST.get('hz')
         if search_floor is '':
             rooms = Room.objects.filter(city__contains=search_city, house_type__contains=search_type,
-                                        rent_amount__lt=search_price, is_co_rent__contains=search_hz)
+                                        rent_amount__lt=search_price, is_co_rent__contains=search_hz, state=0, status=1)
         else:
             rooms = Room.objects.filter(city__contains=search_city, house_type__contains=search_type,
-                                        rent_amount__lt=search_price, is_co_rent=search_hz, floor=search_floor)
+                                        rent_amount__lt=search_price, is_co_rent=search_hz, floor=search_floor, state=0,
+                                        status=1)
         if len(rooms) > 0:
             return render(request, 'rooms_msg.html', {'rooms': rooms})
         return HttpResponse('<script>alert("no result")</script>')
@@ -255,9 +286,10 @@ def rent_room(request):
         room_id = request.POST.get('room_id')
         rent_time = request.POST.get('rent_time')
         user_id = User.objects.filter(tel=user_tel)[0].id
-        is_exist = Order.objects.filter(user_id=user_id, room_id=room_id)
-        if len(is_exist) > 0:
-            return HttpResponse('you have already rent this room!')
+        click_room = Order.objects.filter(room_id=room_id)
+        if len(click_room) > 0:
+            if click_room[0].is_over == 0:
+                return HttpResponse('this room is been rent!')
         create_time = time.strftime('%Y-%m-%d', time.localtime(time.time()))
         order = Order()
         order.room_id = room_id
@@ -275,7 +307,17 @@ def order_list(request):
     user_tel = request.session.get('tel')
     user_id = User.objects.filter(tel=user_tel)[0].id
     orders = Order.objects.filter(user_id=user_id)
-    return render(request, 'order_list.html', {'orders': orders, 'user_id':user_id})
+    rooms = []
+    for i in range(len(orders)):
+        room_id = orders[i].room_id
+        room = Room.objects.filter(id=room_id)
+        rooms.append(room)
+    # comment = Message.objects.filter(user_id=user_id, room_id=room_id)
+    # comment_over = 0
+    # if len(comment) > 0:
+    #     comment_over = 1
+    return render(request, 'order_list.html',
+                  {'orders': orders, 'user_id': user_id, 'rooms': rooms})
 
 
 @login_required
@@ -283,7 +325,7 @@ def exit_rent(request):
     '''退租'''
     user_id = request.POST.get('user_id')
     room_id = request.POST.get('room_id')
-    order = Order.objects.filter(user_id=user_id, room_id=room_id)
+    order = Order.objects.filter(user_id=user_id, room_id=room_id, is_over=0)
     if len(order) > 0:
         if order[0].is_over == 0:
             order = order[0]
@@ -294,10 +336,51 @@ def exit_rent(request):
             return HttpResponse("aleady exit this room!")
     return HttpResponse("error")
 
+
 def room_details(request, room_id):
     room = Room.objects.filter(id=room_id)
+    icon = Img.objects.filter(room_id=room_id)
+    comments = Message.objects.filter(room_id=room[0].id)
+    if len(icon) > 0:
+        icon = icon[0].url
+    else:
+        icon = ''
     if len(room) > 0:
         room = room[0]
-        return render(request, 'room_details.html', {'room':room})
+        return render(request, 'room_details.html', {'room': room, 'icon': icon, 'comments': comments})
     return HttpResponse('error')
 
+
+@login_required
+def room_comment(request):
+    if request.method == 'POST':
+        user_id = request.POST.get('user_id')
+        room_id = request.POST.get('room_id')
+        context = request.POST.get('comment')
+        create_time = time.strftime('%Y-%m-%d', time.localtime(time.time()))
+        comment = Message()
+        comment.user_id = user_id
+        comment.room_id = room_id
+        comment.content = context
+        comment.post_time = create_time
+        comment.save()
+        return redirect('/user/order_list')
+    else:
+        return redirect('/user/order_list')
+
+
+@login_required
+def release_list(request):
+    '''房东 utype = 0'''
+    user_tel = request.session.get('tel')
+    user_id = User.objects.filter(tel=user_tel)[0].id
+    release_rooms = Room.objects.filter(user_id=user_id)
+    return render(request, 'release_list.html', {'release_rooms': release_rooms})
+
+
+@login_required
+def user_comments(request):
+    user_tel = request.session.get('tel')
+    user_id = User.objects.filter(tel=user_tel)[0].id
+    comments = Message.objects.filter(user_id=user_id)
+    return render(request, 'user_comments.html', {'comments': comments})

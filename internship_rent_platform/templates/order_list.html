@@ -5,22 +5,30 @@
     <title>order list</title>
 </head>
 <body>
-
 <ul>
-    {% for order in orders %}
-        <li>{{ order.room_id }} <br>
-            {{ order.create_time }} <br>
-            {{ order.rent_time }} <br>
-            {% if order.is_over == 0 %}
-                <form action="/room/exit_rent" method="post">
-                    <input type="hidden" name="user_id" value="{{ user_id }}"> <br>
-                    <input type="hidden" name="room_id" value="{{ order.room_id }}">
-                    <input type="submit" value="退租">
-                </form>
-            {% else %}
-                <input type="text" name="comment" value="please"> <br>
-                <input type="submit" value="评价"> <br>
-            {% endif %}
+    {% for roomset in rooms %}
+        <li>{% for room in roomset %}
+            {{ room.id }} <br>
+            {{ room.name }} <br>
+            {% for order in orders %}
+                {% if order.room_id == room.id %}
+                    {% if order.is_over == 0 %}
+                        <form action="/room/exit_rent" method="post">
+                            <input type="hidden" name="user_id" value="{{ user_id }}"> <br>
+                            <input type="hidden" name="room_id" value="{{ order.room_id }}"> <br>
+                            <input type="submit" value="退租"> <br>
+                        </form>
+                    {% else %}
+                        <form action="/room/room_comment" method="post">
+                            <input type="hidden" name="user_id" value="{{ user_id }}"> <br>
+                            <input type="hidden" name="room_id" value="{{ order.room_id }}"> <br>
+                            <input type="text" name="comment" value="please"> <br>
+                            <input type="submit" value="留言"> <br>
+                        </form>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
         </li>
     {% endfor %}
 </ul>

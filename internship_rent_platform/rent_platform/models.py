@@ -55,7 +55,8 @@ class Room(models.Model):
     detail = models.CharField(max_length=255, null=True)
     rank = models.CharField(max_length=20, null=True)
     name = models.CharField(max_length=20, null=True)
-    state = models.CharField(max_length=20, null=True)
+    state = models.CharField(max_length=20, null=True)  # 房屋状态(1是0否被租)
+    status = models.IntegerField(null=True)  # 1上架0下架
     floor = models.IntegerField(null=True)
 
 
@@ -74,10 +75,11 @@ class Order(models.Model):
         (2, 'complete')
     )
     user_id = models.CharField(max_length=50, null=False)
-    room_id = models.CharField(max_length=50, null=False)
+    room_id = models.IntegerField()
     create_time = models.DateField(null=True)
-    rent_time = models.DateField(null=True)
-    is_over = models.IntegerField(null=True)
+    rent_time = models.CharField(max_length=20, null=True)
+    is_over = models.IntegerField(null=True)  # 租赁1是0否完成
+    status = models.IntegerField(null=True)  # 订单状态(wait for pay,wait for comment,complete)
 
 
 class Message(models.Model):

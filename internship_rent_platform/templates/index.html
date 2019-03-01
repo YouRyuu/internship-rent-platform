@@ -6,28 +6,30 @@
 </head>
 <body>
 <!--user basic operate-->
-    <!--if login-->
-    {% if tel %}
-        welcome! <a href="user/user_msg">{{ tel }}</a> <br>
-        <a href="user/logout">exit</a><br>
-        <a href="user/change_pwd">change password</a><br>
-        <a href="user/order_list">my order</a> <br>
+<!--if login-->
+{% if tel %}
+    welcome! <a href="user/user_msg">{{ tel }}</a> <br>
+    <a href="user/logout">exit</a><br>
+    <a href="user/change_pwd">change password</a><br>
+    <a href="user/order_list">my order</a> <br>
+    <a href="user/release_list">my release</a> <br>
     <!--not login -->
-    {% else %}
-        <a href="user/login">login</a><br>
-        <a href="user/register">register</a><br>
-    {% endif %}
-    <a href="/index">index</a><br>
+{% else %}
+    <a href="user/login">login</a><br>
+    <a href="user/register">register</a><br>
+{% endif %}
+<a href="/index">index</a><br>
 
-    <a href="user/edit_user_msg">edit message</a> <br>
-    <a href="user/user_msg">user message</a>
+<a href="user/edit_user_msg">edit message</a> <br>
+<a href="user/user_msg">user message</a> <br>
+<a href="user/user_comments">my comment</a>
 
 <!-- user advance operate -->
-    <p>
-        <a href="room/release_rent_msg">发布房源</a> <br>
-        <input type="text" value="search">
-        <input type="submit" value="搜索"> <br>
-        <a href="room/rooms_msg">查询房屋</a>
-    </p>
+<p>
+    <a href="room/release_rent_msg">发布房源</a> <br>
+    <input type="text" value="search">
+    <input type="submit" value="搜索"> <br>
+    <a href="room/rooms_msg">查询房屋</a>
+</p>
 </body>
 </html>

@@ -5,7 +5,32 @@
     <title>room details</title>
 </head>
 <body>
-    {{ room.id }} <br>
-    {{ room.name }}
+<img src="{{ icon }}" alt="xxx"> <br>
+{{ room.id }} <br>
+{{ room.name }} <br>
+{{ room.location }} <br>
+{{ room.city }} <br>
+{{ room.district }} <br>
+{{ room.size }} <br>
+{{ room.is_co_rent }} <br>
+{{ room.detail }} <br>
+{{ room.state }} <br>
+{{ room.house_type }} <br>
+{{ room.floor }} <br>
+{{ room.rent_amount }} <br>
+<form action="rent_room" method="post">
+    <input type="hidden" value="{{ room.id }}" name="room_id">
+    租赁时长: <input type="text" name="rent_time"> <br>
+    <input type="submit" value="租赁">
+</form>
+liuyan:
+<ul>
+    {% for comment in comments %}
+        <li>
+        {{ comment.user_id }}
+        {{ comment.content }}
+        </li>
+    {% endfor %}
+</ul>
 </body>
 </html>
