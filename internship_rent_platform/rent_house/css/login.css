@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 微软雅黑;
+}
+.content{
+    width: 1500px;
+    height: 800px;
+    margin: 0px;
+    background: #cccccc;
+}
+hr{
+    padding-top: 200px;
+}
+.content form{
+    margin: fill;
+    padding: 1px;
+    border: 1px;
+}
+.content form input{
+    margin-left: 600px;
+    border:1px ;
+    width:300px;
+    height:36px;
+    display:block;
+
+    text-align:center;
+    margin-top:50px;
+    font-size:24px;
+}
+
+.one{
+    margin-left: 500px;
+}
+.content form a{
+    text-decoration: none;
+    color: #ffa000;
+    margin-left:-303px;
+}
+.content form button{
+    background:#FC3;
+    width:100px;
+    height:36px;
+    margin-top:61px;
+    margin-left:100px;
+
+}

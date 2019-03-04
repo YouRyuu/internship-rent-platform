@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/rent-host.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <link rel="stylesheet" href="css/icon.css">
+    <link rel="stylesheet" href="css/easyui.css">
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery-easyui-1.7.4/jquery.easyui.min.js"></script>
+    <script>
+        var images=[];
+       function preview(obj) {
+               var file=obj.files[0];
+               var reader=new FileReader();
+               reader.readAsDataURL(file);
+               reader.onload=function (e) {
+                   images.push(e.target.result)
+                   $(".four").empty();
+                   for(var i=0;i<=images.length;i++){
+                       $(".four").append('<img src=" '+images[i]+'" alt="" width="200px" height="150px">')
+                   }
+                   console.log(images);
+               }
+
+           }
+
+    </script>
+</head>
+<body>
+<div class="header">
+    <div class="logo">
+        <a href="index.html" title="主页">
+            <img src="images/icon.jpg">
+        </a>
+        <h1>实租网</h1>
+    </div>
+</div>
+<div class="content">
+    <div class="easyui-tabs" style="width:800px;height:1000px; margin:0px auto;">
+        <div title="个人信息" style="padding:10px;">
+            <h3 style="color:#ffa000;">个人信息
+            </h3>
+            昵称：<label id="name">小李</label><br>
+            身份证号：<label id="iden">211554122365659874</label><br>
+            手机号：<label id="tel">110</label><br>
+            邮箱：<label id="mail">5542@163.com</label>
+            <br>
+            <h3 style="color: #ffa000;">修改密码</h3>
+            <form action="">
+                <input type="password" placeholder="请输入原密码"><br><br>
+                <input type="password" placeholder="请输入新密码"><br><br>
+                <input type="password" placeholder="请确认密码"><br><br>
+                <input type="submit" name="提交">
+            </form>
+        </div>
+        <div title="房屋信息发布" data-option="closable:true" style="padding: 10px;">
+            <form action="" enctype="multipart/form-data">
+                <h3 style="color: #ffa000">房源图片</h3><br>
+                <a class="file">点击这里上传图片
+                    <input type="file" id="file" multiple="multiple" accept="image/jpeg" onchange="preview(this)"></a>
+                <br>
+              <div class="four">
+              </div>
+                <br>
+                <h3 style="color: #ffa000">基本信息</h3><br>
+                名&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;称<input type="text" id="" placeholder="请输入房源名称"><br><br>
+                城&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;市<input type="text" id=" " placeholder="请输入城市名"><br><br>
+                区&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;域<input type="text" id="  " placeholder="请输入区域名"><br><br>
+                地&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;点<input type="text" id="   " placeholder="请输入地点"><br><br>
+                租&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;金<input type="text" id="     "placeholder="请输入租金"><br><br>
+                余&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;月<input type="text" id="      " placeholder="请输入余月"><br><br>
+                楼&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;层<input type="text" placeholder="请输入楼层"><br><br>
+                设施<br>
+                <p>床<input type="checkbox" name="facility" value="床">
+                    衣柜<input type="checkbox" name="facility" value="衣柜">
+                     书桌<input type="checkbox" name="facility" value="书桌">
+                </p>
+                <p>WIFI<input type="checkbox" name="facility" value="WIFI">
+                洗衣机<input type="checkbox" name="facility" value="洗衣机">
+                热水器<input type="checkbox" name="facility" value="热水器"></p>
+                <p>
+                    空调<input type="checkbox" name="facility" value="空调">
+                    微波炉<input type="checkbox" name="facility" value="微波炉">
+                    智能锁<input type="checkbox" name="facility" value="智能锁">
+                </p><br>
+                <div class="around">
+                    <h3 style="color: #ffa000">周边设施</h3><br>
+                <p>公共设施<input type="text" height="200px"  maxlength="200"></p>
+                <p>娱乐场所<input type="text" height="200px"  maxlength="200"></p>
+                <p>通勤条件<input type="text" height="200px"  maxlength="200"></p>
+                </div>
+                <div class="describe">
+                    <h3 style="color: #ffa000">相关描述</h3><br>
+                <p><input type="text" height="200px" maxlength="200"></p>
+                </div>
+                <input type="submit" value="确认上传">
+            </form>
+        </div>
+        <div title="历史房源" data-option="closable:true" style="padding:20px; display: none;">
+            111
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
