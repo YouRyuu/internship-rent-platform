@@ -1,0 +1,328 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 微软雅黑;
+}
+a{
+    text-decoration: none;
+}
+/*a,a:hover,label,input[type="checkbox"]{
+    cursor: pointer;
+}*/
+
+.header {
+    height: 33px;
+    background: #ffffff;
+}
+.logo{
+    padding: 21px 0 21px 0;
+    float: left;
+    position: relative;
+    width: 100px;
+    height: 9px;
+}
+.logo h1{
+    font-weight: 500;
+    font-size: 18px;
+    color: #ffa000;
+    margin-top: -28px;
+    margin-left: 38px;
+
+}
+.logo img{
+    height: 30px;
+    width: 30px;
+}
+.header-login{
+    height: 50px;
+    float: right;
+    background: #fff;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #ffffff;
+}
+li{
+    float: left;
+}
+.login li a{
+    text-decoration:none;
+    color: #000000;
+    display: block;
+    padding: 14px 16px;
+}
+.login li a:hover{
+    text-decoration:none;
+    color:#ffa000;
+}
+.node{
+    text-align: left;
+    margin: 0 auto;
+    width: 998px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+}
+.node a{
+    text-decoration: none;
+    color: black;
+}
+.content{
+    width: 1000px;
+    margin: 5px auto 15px;
+    height: 1019px;
+}
+.house-detail-left{
+    float: left;
+    width: 600px;
+    position: relative;
+}
+.house-img{
+    width: 600px;
+}
+
+.house-img table td{
+    border: 1px solid black;
+}
+
+.house-img img{
+    width: 293px;
+
+
+}
+.house-detail-right{
+    float: right;
+    width: 397px;
+    position: relative;
+    right: -15px;
+}
+.house-detail-right h2{
+    font-weight: 500;
+
+}
+.house-detail-right #p1{
+    margin-top: 14px;
+}
+.house-detail-right #addr{
+    color: dimgrey;
+}
+.house-detail-right #price{
+    color: #ffa000;
+    margin-left: 60px;
+    font-weight: 700;
+    font-size: 18px;
+}
+.house-tag{
+    margin-bottom: 20px;
+}
+.house-tag span{
+    border: solid 1px #999;
+    border-radius: 2px;
+    color: #999;
+    font-size: 17px;
+    padding: 0 18px;
+    line-height: 28px;
+    display: inline-block;
+    float: left;
+    margin-top: 25px;
+   margin-left: 9px;
+}
+.detail-house{
+    padding: 0 25px;
+    background: #f5f5f5;
+    border-radius: 5px;
+    color: #666;
+    font-size: 12px;
+    margin-bottom: 20px;
+    height: 160px;
+    position: relative;
+    width:286px;
+    margin-top:78px;
+    margin-left: 10px;
+}
+ul{
+    list-style: none outside none;
+}
+.detail-house li{
+    line-height: 31px;
+    position: relative;
+    border-bottom: solid 1px #fff;
+    font-size: 14px;
+    float: initial;
+}
+.communicate{
+    width: 397px;
+    height: 73px;
+}
+.sign{
+    width: 300px;
+    height: 50px;
+    float: left;
+    margin-left: 20px;
+}
+.sign img{
+    width: 40px;
+    height: 40px;
+    padding: 0 28px;
+}
+.titleFirst{
+    margin-top: 0px;
+    width: 100%;
+    margin-bottom: 20px;
+    overflow: hidden;
+    position: relative;
+}
+.titleFirst h2{
+    font-size: 25px;
+    font-weight: 100;
+    margin-top: 11px;
+}
+.first-container{
+    width: 600px;
+    height: 255px;
+    margin-top: 9px;
+}
+.first-container h3{
+    color: #666666;
+    font-size: 17px;
+    font-weight: 500;
+
+}
+.first-container hr{
+    margin-top: 25px;
+}
+.titleSecond{
+    margin-top: -99px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.titleSecond h2{
+    font-size: 25px;
+    font-weight: 100;
+    margin-top: 11px;
+}
+table{
+    border: 1px solid #666666;
+    width: 600px;
+    height: 83px;
+    border-collapse: collapse;
+    color: #ffa000;
+}
+td,th{
+    border: 1px solid black;
+    padding: 0;
+    text-align: center;
+}
+
+.titleForth h2{
+    font-size: 25px;
+    font-weight: 100;
+}
+.titleForth td{
+    color: #666666;
+}
+.house-hold-intr{
+    float: right;
+    width: 397px;
+    height: 250px;
+    margin-top:-344px ;
+    margin-right: -32px;
+}
+
+.titleThird h2{
+    font-size: 25px;
+    font-weight: 100;
+
+}
+.comment{
+    background: #f5f5f5;
+    border-radius: 5px;
+
+    width: 333px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: #666666;
+}
+.comment p{
+    padding: 10px;
+    text-align: justify;
+    text-indent: 2em;
+}
+.bottom-gif{
+    position: absolute;/*绝对定位*/
+    height: 100px;
+    width:1000px ;
+    background: url("../images/move.gif") repeat-x -14px -23px;
+    background-size: 73px 79px;
+    top:1025px;
+}
+
+
+.footer{
+    padding: 20px 0 40px 0;
+    background: #fafafa;
+    line-height: 20px;
+    border-top: solid 1px #ccc;
+}
+.area {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+.clearfix{
+    display: block;
+    width: 1000px;
+    height: 100px;
+    margin-left: 225px;
+}
+.footer.glbLeft{
+    width:880px;
+}
+dl {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+dt{
+    display: block;
+    -webkit-margin-start: 40px;
+
+}
+dd {
+    display: block;
+    -webkit-margin-start: 40px;
+
+}
+.fList{
+    display: inline-block;
+    float: left;
+}
+.footer .fList dd a {
+    display: block;
+    font-size: 12px;
+    line-height: 24px;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all.2s ease-in;
+    transition: all .2s ease-in;
+    text-decoration: none;
+    color: dimgrey;
+}
+.glbRight{
+    width: 300px;
+    float: right;
+    padding-right: 75px;
+}
+
+.img img{
+    vertical-align: top;
+    border: 0;
+    height: 100px;
+    width: 100px;
+
+}
