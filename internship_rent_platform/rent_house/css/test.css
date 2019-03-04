@@ -1,0 +1,33 @@
+.tu{
+    width: 960px;
+    height: 416px;
+}
+.tu img{
+    width:960px;
+    height:416px;
+    display:none;
+    position:absolute;
+    top:0;
+    left:0;
+}
+.ups{
+    display: none;
+}
+.btn_left{
+    width: 34px;
+    height: 44px;
+    background: url(../images/left.png) no-repeat;
+    position: absolute;
+    left: 0;
+    top: 200px;
+    cursor: pointer;
+}
+.btn_right{
+    width: 34px;
+    height: 44px;
+    background: url(../images/right.png) no-repeat;
+    position: absolute;
+    right: 0;
+    top: 200px;
+    cursor: pointer;
+}

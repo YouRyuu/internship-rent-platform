@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/detail.css"/>
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <script>
+        $(function(){
+            var status=true;
+            $("#collection").click(function () {
+                if(status){
+                    $("#star").attr('src','images/star_fill.png')
+
+                    status=false;
+                    $("#collection").attr("title","取消收藏")
+                }else {
+                    $("#star").attr('src','images/star.png')
+                    status=true;
+                    $("#collection").attr("title","收藏")
+                }
+            });
+        })
+    </script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.13&key=eda10b859e802d48c7748294f6154d79"></script>
+</head>
+<body>
+<div class="header">
+    <div class="logo">
+        <a href="index.html">
+            <img src="images/icon.jpg">
+        </a>
+        <h1>实租网</h1>
+    </div>
+    <div class="header-login">
+        <div class="login">
+            <ul class="login">
+                <li class="item"><a id="sign" href="login.html">登录</a></li>
+                <li class="item"><a href="register.html">注册</a></li>
+                <li class="item"><a href="personal.html">个人中心</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="node">
+    <a href="index.html">首页</a>
+    <a href="#">>北京</a>
+    <hr/>
+</div>
+<div class="content">
+    <div class="house-detail-left">
+        <div class="house-img">
+            <table>
+                <tr>
+                    <td><img src="images/house1.jpg">
+                    </td>
+                    <td><img src="images/house2.jpg"></td>
+                </tr>
+                <tr>
+                    <td><img src="images/house3.jpg"></td>
+                    <td><img src="images/house4.jpg"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="house-detail-right">
+        <div class="house-name">
+            <h2 id="name">交道口北二条35号院3居室</h2>
+            <p id="p1"><span id="addr">东城 交道口（地点）</span>
+            <span id="price">$3568</span>
+            <span id="month">/月（季付）</span></p>
+        </div>
+        <p class="house-tag">
+            <span class="subway">离地铁近</span>
+            <span class="balcony">独立阳台</span>
+            <span class="how">押一付三</span>
+        </p>
+        <ul class="detail-house">
+            <li>合租/整租：<label id="fo">整租</label></li>
+            <li>户型：<label id="ty">2室1厅</label></li>
+            <li>楼层：<label id="hi">12/21</label></li>
+            <li>余月：<label id="mo">3</label></li>
+        </ul>
+        <div class="communicate">
+            <div class="sign">
+                <a href="sign.html" title="线上签约">
+                    <img src="images/sign.png">
+                </a>
+                <a href="#" title="联系房东">
+                    <img src="images/phone.png">
+                </a>
+                <a href="#" title="收藏" id="collection">
+                    <img src="images/star.png" id="star">
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="titleFirst">
+        <h2 class="tm">
+            ▪关于此房源
+        </h2>
+    <div class="first-container">
+        <h3><strong>编号：</strong>888888</h3>
+        <p id="pp">
+            <br>
+        <strong>房源介绍：</strong>该房源为两室一厅，全南格局，私密性好，并且业主自住型装修，清新明亮的北欧风格，搭配起整间小屋，映衬着初春的阳光，显得高端、温馨、别致。另外，低廉的价格也是吸引你的理由，性价高的房子在此区域仅此一套，业主是个很有情调的人，还你一种家的温馨和舒适。业主对房屋很爱惜，没有住过，对房子保养很好，希望找爱惜房子的一家人客户，不能养宠物。
+        </p>
+        <hr>
+    </div>
+    </div>
+    <div class="titleSecond">
+        <h2>
+            ▪房屋配置
+        </h2>
+        <div class="second-container">
+            <table>
+                <tr>
+                    <th>床</th>
+                    <th>衣柜</th>
+                    <th>书桌</th>
+                    <th>WiFi</th>
+                    <th>洗衣机</th>
+                    <th>热水器</th>
+                    <th>空调</th>
+                    <th>微波炉</th>
+                    <th>智能锁</th>
+                </tr>
+                <tr>
+                    <td><label id="1">√</label></td>
+                    <td><label id="2">√</label></td>
+                    <td><label id="3">√</label></td>
+                    <td><label id="4">√</label></td>
+                    <td><label id="5">√</label></td>
+                    <td><label id="6">√</label></td>
+                    <td><label id="7">√</label></td>
+                    <td><label id="8">√</label></td>
+                    <td><label id="9"> </label></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+   <div class="titleForth">
+        <h2>
+            ▪房源附近
+        </h2>
+        <div class="forth-container">
+            <table>
+                <tr>
+                    <th>公共设施</th>
+                    <th>娱乐场所</th>
+                    <th>通勤条件</th>
+                </tr>
+                <tr>
+                    <td><label id="public">第一人民医院，xx小学，xx中学</label></td>
+                    <td><label id="amusement">xxKTV</label></td>
+                    <td><label id="transport">地铁一号线，公交10路</label></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="bottom-gif">
+       <!--<img src="images/move.gif">-->
+    </div>
+    <div class="house-hold-intr">
+        <div class="titleThird">
+            <h2 class="tm">
+                ▪对房东评价
+            </h2>
+            <div class="comment">
+                <p id="c1">
+                    房子户型通透，房价合适，装修够好，视野够棒，品牌服务，高端享受，品质生活，大河庄苑小区生活气息浓郁，有自己的物业，白天有保安巡检，非常安全，人车分流，出行方便，小区绿化好，有小公园，居民以中关村上班的人居多，素质高。</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="footer">
+    <div class="area">
+    <div class="clearfix">
+        <div class="glbLeft">
+            <dl class="fList">
+                <dt>关于我们</dt>
+                <dd>
+                    <a href="#">关于实租</a>
+                    <a href="#">联系实租</a>
+                    <a href="#">加入实租</a>
+                </dd>
+            </dl>
+            <dl class="fList">
+                <dt>友情链接</dt>
+                <dd>
+                    <a href="#">友情链接</a>
+                    <a href="#">友情链接</a>
+                    <a href="#">友情链接</a>
+                    <a href="#">友情链接</a>
+                </dd>
+            </dl>
+            <dl class="fList">
+                <dt>关注我们</dt>
+                <dd>
+                    <a href="#">打赏开发者</a>
+                    <a href="#">下载app</a>
+                </dd>
+            </dl>
+        </div>
+        <div class="glbRight">
+            <div class="img">
+                <img src="images/icon.jpg">
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
