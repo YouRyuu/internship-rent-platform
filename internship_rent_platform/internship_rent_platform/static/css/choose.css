@@ -1,0 +1,217 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 微软雅黑;
+}
+.header {
+    height: 33px;
+    background: #ffffff;
+}
+.logo{
+    padding: 21px 0 21px 0;
+    float: left;
+    position: relative;
+    width: 100px;
+    height: 9px;
+}
+.logo h1{
+    font-weight: 500;
+    font-size: 18px;
+    color: #ffa000;
+    margin-top: -28px;
+    margin-left: 38px;
+
+}
+.logo img{
+    height: 30px;
+    width: 30px;
+}
+.header-login{
+    height: 50px;
+    float: right;
+    background: #fff;
+}
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #ffffff;
+}
+li{
+    float: left;
+}
+.login li a{
+    text-decoration:none;
+    color: #000000;
+    display: block;
+    padding: 14px 16px;
+}
+.login li a:hover{
+    text-decoration:none;
+    color:#ffa000;
+}
+.node{
+    text-align: left;
+    margin: 0 auto;
+    width: 998px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+}
+.node a{
+    text-decoration: none;
+    color: black;
+}
+
+.search{
+    width: 289px;
+    height: 31px;
+    border-radius: 9px;
+    outline: none;
+    border: 1px solid #ffa000;
+    padding-left: 11px;
+    position: absolute;
+    color: #666666;
+    font-size: 13px;
+    margin-left: 259px;
+}
+.btn{
+    position: absolute;
+    background:url('../images/search.png') no-repeat 2px;/*同级文件夹写法*/
+    background-size: 25px 25px;
+    left: 522px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    height: 34px;
+    width: 35px;
+}
+.gif{
+    width:694px ;
+    height: 33px;
+    margin: 2px 567px 1px;
+    background: url("../images/move.gif") repeat-x 1px -25px;
+    background-size: 73px 79px;
+}
+.content{
+    width: 1000px;
+    margin: 13px auto 14px;
+    height: 1110px;
+}
+.choose-box{
+    position: relative;
+    border-radius: 5px;
+    padding: 1px;
+    background: #ffeefb;
+}
+.choose-content dt{
+    margin-left: 1px;
+    margin-top: -11px;
+}
+.choose-content dd{
+    margin-left: 50px;
+    font-size: 15px;
+    font-weight: 100;
+    margin-top: -19px;
+}
+input[type="radio"] + label::before {
+    content: "\a0"; /*不换行空格*/
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 13px;
+    width: 1em;
+    height: 1em;
+    margin-right: .4em;
+    border-radius: 50%;
+    border: 1px solid #ffa000;
+    text-indent: .15em;
+    line-height: 1;
+}
+input[type="radio"]:checked + label::before {
+    background-color: #ffa000;
+    background-clip: content-box;
+    padding: .2em;
+}
+input[type="radio"] {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+.house-list hr{
+    margin-top: 10px;
+}
+.house{
+    float:left;
+    width:25%;
+    text-align:center;
+    padding:10px 0px;
+}
+.houseimg img{
+    width:200px;
+    height:196px;
+}
+
+.footer{
+    padding: 20px 0 40px 0;
+    background: #fafafa;
+    line-height: 20px;
+    border-top: solid 1px #ccc;
+}
+.area {
+    width: 1200px;
+    margin: 0 auto;
+    text-align: left;
+}
+.clearfix{
+    display: block;
+    width: 1000px;
+    height: 100px;
+    margin-left: 225px;
+}
+.footer.glbLeft{
+    width:880px;
+}
+dl {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+dt{
+    display: block;
+    -webkit-margin-start: 40px;
+
+}
+dd {
+    display: block;
+    -webkit-margin-start: 40px;
+
+}
+.footer .fList dd a {
+    display: block;
+    font-size: 12px;
+    line-height: 24px;
+    -moz-transition: all .2s ease-in;
+    -o-transition: all.2s ease-in;
+    transition: all .2s ease-in;
+    text-decoration: none;
+    color: dimgrey;
+}
+.fList{
+    display: inline-block;
+    float: left;
+}
+.glbRight{
+    width: 300px;
+    float: right;
+    padding-right: 75px;
+}
+
+.img img{
+    vertical-align: top;
+    border: 0;
+    height: 100px;
+    width: 100px;
+
+}

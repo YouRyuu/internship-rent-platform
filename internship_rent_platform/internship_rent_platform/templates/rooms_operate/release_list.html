@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>release list</title>
+</head>
+<body>
+<ul>
+    {{ msg }}
+    {% for room in release_rooms %}
+        <li>
+            {{ room.name }}
+            {{ room.is_co_rent }} <br>
+            <a href="/room/update_rent_msg/{{ room.id }}">更新房源信息</a> <br>
+            <a href="#">下架</a>
+        </li>
+    {% empty %}
+        no release
+    {% endfor %}
+</ul>
+</body>
+</html>

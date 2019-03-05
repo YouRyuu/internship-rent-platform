@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+<div class="content">
+    <hr/>
+    <form action="/user/login" method="post">
+        <div >
+            <input type="text" placeholder="请输入手机号" name="tel"/>
+            <input type="password" placeholder="请输入密码" name="password"/>
+        </div>
+        <div class="one">
+            <table>
+                <tr>
+                    <td><button type="submit" >登录</button> </td>
+                    <td><button>注册</button></td>
+                    <td><a href="/user/find_pwd">忘记密码？</a></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+</body>
+</html>

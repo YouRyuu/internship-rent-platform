@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>alert({{ msg }})</script>
+<form action="search_room" method="post">
+    筛选条件: <br>
+    地理位置: 城市<input type="text" name="search_city" value="dalian"> <br>
+    户型: <p>一室一厅：<input type="radio" name="roomtype" value="11"></p>
+         <p>二室一厅：<input type="radio" name="roomtype"  value="21"></p>
+         <p>三室一厅：<input type="radio" name="roomtype"  value="31" checked></p>
+         <p>四室一厅：<input type="radio" name="roomtype"  value="41"></p>
+         <p>四室二厅：<input type="radio" name="roomtype"  value="42"></p>
+    价格: <p>0~1000<input type="radio" name="price" value="1000" checked></p>
+         <p>1001~2000<input type="radio" name="price"  value="2000"></p>
+         <p>2001~3000<input type="radio" name="price"  value="3000"></p>
+         <p>3001~4000<input type="radio" name="price"  value="4000"></p>
+         <p>4000+<input type="radio" name="price"  value="4001"></p>
+    楼层: <input type="text" name="search_floor" value="1"> <br>
+    是否合租: <p>是：<input type="radio" name="hz" value="1"></p>
+             <p>否：<input type="radio" name="hz"  value="0" checked></p><br>
+    <input type="submit" value="submit">
+</form>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/sign.css">
+</head>
+<body>
+<div class="content">
+    <div class="header">
+        <span>订单确认</span>
+    </div>
+    <div class="order">
+        <span>租户:</span><label id="user">{{ user.nickname }}</label><br>
+        <span>房东:</span><label id="holder">{{ rentee.nickname }}</label><br>
+        <span>房源名称:</span><label id="name">{{ room.name }}
+    </label><br>
+        <span>房源地点:</span><label id="addr">{{ room.location }}</label><br>
+        <span>TIME</span>
+        <form action="/room/rent_room?roomid={{ room.id }}" method="post">
+        <select id="timevalue" name="timevalue">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+        </select> <br>
+        <span>总租金:</span><label id="total">{{ room.rent_amount }}</label><label>元</label>
+    </div>
+
+        <div class="confirm">
+            <button id="btn1" onclick="window.history.back(-1);">取消</button>
+            <button id="btn2" onclick="window.location.href='pay.html';">确认</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

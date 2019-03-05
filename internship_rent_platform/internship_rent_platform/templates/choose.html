@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/choose.css' %}">
+</head>
+<body>
+<div class="header">
+    <div class="logo">
+        <a href="/index">
+            <img src="{% static 'images/icon.jpg' %}">
+        </a>
+        <h1>实租网</h1>
+    </div>
+    <div class="header-login">
+        <div class="login">
+            <ul class="login">
+                {% if tel %}
+                    <li class="item"><a href="/user/user_msg">{{ tel }}</a></li>
+                    <li class="item"><a href="/user/logout">EXIT</a></li>
+                {% else %}
+                    <li class="item"><a id="sign" href="/user/login">登录</a></li>
+                    <li class="item"><a href="/user/register">注册</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="node">
+    <a href="/index">首页</a>
+    <a href="/room/rooms_msg">>找房</a>
+</div>
+<div search-container>
+    <form action="" class="">
+        <input type="text" class="search" placeholder="搜索">
+        <input type="button" name="" class="btn">
+    </form>
+</div>
+<div class="gif">
+</div>
+<div class="content">
+    <div class="choose-box">
+        <div class="choose-content">
+            <form action="search_room" method="post">
+                <dl class="dl1">
+                    <dt>类型：</dt>
+                    <dd> &nbsp;&nbsp;&nbsp;&nbsp;
+                        整租<input type="radio" name="hz" value="0" id="t2" checked>
+                        <label for="t2"></label>
+                        合租<input type="radio" name="hz" value="1" id="t3">
+                        <label for="t3"></label>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>租金：</dt>
+                    <dd> &nbsp;&nbsp;&nbsp;&nbsp;不限<input type="radio" name="money" value="1000000" id="m1" checked>
+                        <label for="m1"></label>
+                        1000元以下<input type="radio" name="money" value="1000" id="m2">
+                        <label for="m2"></label>
+                        1000-2000元<input type="radio" name="money" value="1001" id="m3">
+                        <label for="m3"></label>
+                        2000-3000元<input type="radio" name="money" value="2001" id="m4">
+                        <label for="m4"></label>
+                        3000-4000元<input type="radio" name="money" value="3001" id="m5">
+                        <label for="m5"></label>
+                        4000元以上<input type="radio" name="money" value="4001" id="m6">
+                        <label for="m6"></label>
+                    </dd>
+                </dl>
+
+                <dl>
+                    <dt>居室：</dt>
+                    <dd> &nbsp;&nbsp;&nbsp;&nbsp;不限<input type="radio" name="jushi" value="不限" id="j1" checked>
+                        <label for="j1"></label>
+                        1居<input type="radio" name="jushi" value="11" id="j2">
+                        <label for="j2"></label>
+                        2居<input type="radio" name="jushi" value="21" id="j3">
+                        <label for="j3"></label>
+                        3居<input type="radio" name="jushi" value="31" id="j4">
+                        <label for="j4"></label>
+                        4居<input type="radio" name="jushi" value="41" id="j5">
+                        <label for="j5"></label>
+                        4居以上<input type="radio" name="jushi" value="42  " id="j6">
+                        <label for="j6"></label>
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>区域：</dt>
+                    <dd>
+                        &nbsp;&nbsp;&nbsp;&nbsp;不限<input type="radio" name="region" value="不限" id="r1" checked>
+                        <label for="r1"></label>
+                        <input type="text" name="search_city" placeholder="请输入区域" id="r2">
+                    </dd>
+                </dl>
+                <dl>
+                    <dt>楼层：</dt>
+                    <dd> &nbsp;&nbsp;&nbsp;&nbsp;不限<input type="radio" name="floor" value="不限" id="r1" checked>
+                        <label for="r1"></label>
+                        <input type="text" name="floortext" placeholder="请输入楼层" id="r2">
+                    </dd>
+                </dl>
+                <input type="submit" value="搜索">
+            </form>
+        </div>
+    </div>
+    <div class="hou-produce">
+        <div class="house-list">
+            <hr>
+            {% if msg %}
+                <script>alert('{{ msg }}')</script>
+            {% endif %}
+            {% for room in rooms %}
+                {% for img in imgs %}
+                    {% if room.id == img.room_id %}
+                        <div class="house">
+                            <div class="houseimg">
+                                <a href="/room/{{ room.id }}"><img src="{{ img.url }}"/></a>
+                            </div>
+                            <div class="houseIntr">
+                                <span>房名：{{ room.name }}</span><br/>
+                                <span>地点：{{ room.location }}</span>
+                                <span>租金：{{ room.rent_amount }}</span>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="footer">
+    <div class="area">
+        <div class="clearfix">
+            <div class="glbLeft">
+                <dl class="fList">
+                    <dt>关于我们</dt>
+                    <dd>
+                        <a href="#">关于实租</a>
+                        <a href="#">联系实租</a>
+                        <a href="#">加入实租</a>
+                    </dd>
+                </dl>
+                <dl class="fList">
+                    <dt>友情链接</dt>
+                    <dd>
+                        <a href="#">友情链接</a>
+                        <a href="#">友情链接</a>
+                        <a href="#">友情链接</a>
+                        <a href="#">友情链接</a>
+                    </dd>
+                </dl>
+                <dl class="fList">
+                    <dt>关注我们</dt>
+                    <dd>
+                        <a href="#">打赏开发者</a>
+                        <a href="#">下载app</a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="glbRight">
+                <div class="img">
+                    <img src="{% static 'images/icon.jpg' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
