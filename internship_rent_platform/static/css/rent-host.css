@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 微软雅黑;
+}
+.header {
+    height: 33px;
+    background: #ffffff;
+}
+.logo{
+    padding: 21px 0 21px 0;
+    float: left;
+    position: relative;
+    width: 100px;
+    height: 9px;
+}
+.logo h1{
+    font-weight: 500;
+    font-size: 18px;
+    color: #ffa000;
+    margin-top: -28px;
+    margin-left: 38px;
+
+}
+.logo img{
+    height: 30px;
+    width: 30px;
+}
+
+.content{
+    width: 800px;
+    margin: 0px auto 15px;
+}
+.file{
+    position: relative;
+    display: inline-block;
+    background: #ffa000;
+    border: 1px solid #ffa000;
+    border-radius: 4px;
+    padding: 4px 12px;
+    color: #cccccc;
+    text-decoration: none;
+    line-height: 20px;
+    overflow: hidden;
+    text-indent: 0;
+}
+.file input{
+    position: absolute;
+    font-size: 14px;
+    right: 0;
+    top:0;
+    opacity: 0;
+}
+.file:hover{
+    background: #FFCC33;
+
+}
+input[type=text]{
+    width: 200px;
+    margin: 0 15px;
+}
+
+.describe{
+    margin-top: 20px;
+}
+.describe input[type=text]{
+    margin: 0 auto;
+}
+input[type=submit]{
+    margin-top: 20px;
+    background: #ffa000;
+    color: white;
+    border: 1px solid #ffa000;
+    border-radius: 4px;
+}
+input[type=submit]:hover{
+    background: #FFCC33;
+    cursor: pointer;
+}

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>update rent msg</title>
+</head>
+<body>
+<form action="{{ room_base_msg.id }}" method="post">
+    房东:{{ rentee_name }} <br>
+    房屋地址: <input type="text" name="room_location" value="{{ room_base_msg.location }}"> <br>
+    房屋城市: <input type="text" name="room_city" value="{{ room_base_msg.city }}"> <br>
+    所在区: <input type="text" name="room_district" value="{{ room_base_msg.district }}"> <br>
+    房屋类型: <input type="text" name="room_type" value="{{ room_base_msg.house_type }}"> <br>
+    租金价格: <input type="text" name="room_rent_amount" value="{{ room_base_msg.rent_amount }}"> <br>
+    <!-- 纬度-->:
+    <!-- 经度:-->
+    房屋大小: <input type="text" name="room_size" value="{{ room_base_msg.size }}"> <br>
+    是否合租: <p>是：<input type="radio" name="rent_type" value="1"></p>
+    <p>否：<input type="radio" name="rent_type" value="0"></p>
+    <!--是否合租-->:
+    房屋细节: <input type="text" name="room_detail" value="{{ room_base_msg.detail }}"> <br>
+    <!--房屋排名:-->
+    房屋名称: <input type="text" name="room_name" value="{{ room_base_msg.name }}"> <br>
+    房屋楼层: <input type="text" name="room_floor" value="{{ room_base_msg.floor }}"> <br>
+    <!--房屋状态(发布是否成功):-->
+    <input type="submit" value="更新">
+</form>
+</body>
+</html>

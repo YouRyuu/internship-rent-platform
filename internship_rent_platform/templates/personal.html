@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/easyui.css' %}">
+    <link rel="stylesheet" href="{% static 'css/demo.css' %}">
+    <link rel="stylesheet" href="{% static 'css/icon.css' %}">
+    <link rel="stylesheet" href="{% static 'css/personal.css' %}">
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery-easyui-1.7.4/jquery.easyui.min.js' %}"></script>
+</head>
+{% if msg %}
+    <script>alert('{{ msg }}')</script>
+{% endif %}
+<body>
+<div class="header">
+    <div class="logo">
+        <a href="/index" title="主页">
+            <img src="{% static 'images/icon.jpg' %}">
+        </a>
+        <h1>实租网</h1>
+    </div>
+</div>
+<div class="content">
+    <div class="easyui-tabs" style="width:800px;height:800px; margin:0px auto;">
+        <div title="个人信息" style="padding:10px;">
+            <h3 style="color:#ffa000;">个人信息
+            </h3>
+            昵称：<label id="name">{{ user_name }}</label><br>
+            手机号：<label id="tel">{{ user_tel }}</label><br>
+            邮箱：<label id="mail">{{ user_email }}</label>
+            <br>
+            <a href="/user/edit_user_msg">修改个人信息</a>
+            <h3 style="color: #ffa000;">修改密码</h3>
+            <form action="change_pwd" method="post">
+                <input type="password" placeholder="请输入原密码" name="oldpwd"><br><br>
+                <input type="password" placeholder="请输入新密码" name="newpwd"><br><br>
+                <input type="password" placeholder="请确认密码" name="repwd"><br><br>
+                <input type="submit" value="提交">
+            </form>
+            <ul>
+            </ul>
+        </div>
+        <div title="我的订单" data-option="closable:true" style="padding: 10px;">
+            <ul>
+            <table>
+                {% for order,roomset in rooms %}
+                    <li> <tr>
+                        {% for room in roomset %}
+                            房屋ID:&nbsp;&nbsp;&nbsp;&nbsp;{{ room.id }} <br>
+                            房屋名称:&nbsp;{{ room.name }} <br>
+                            订单时间:&nbsp;{{ order.create_time }} <br>
+                            {% if order.is_over == 0 %}
+                                      订单状态:正在租住
+                                <form action="/room/exit_rent" method="post">
+                                    <input type="hidden" name="user_id" value="{{ user_id }}"> <br>
+                                    <input type="hidden" name="room_id" value="{{ order.room_id }}"> <br>
+                                    <input type="submit" value="退租"> <br>
+                                </form>
+                            {% else %}
+                                     订单状态:已退租
+                                <form action="/room/room_comment" method="post">
+                                    <input type="hidden" name="user_id" value="{{ user_id }}"> <br>
+                                    <input type="hidden" name="room_id" value="{{ order.room_id }}"> <br>
+                                    <input type="text" name="comment" value="please"> <br>
+                                    <input type="submit" value="留言"> <br>
+                                </form>
+                            {% endif %}
+                        {% endfor %}</tr>
+                    </li>
+                {% endfor %}
+            </table>
+            </ul>
+        </div>
+        <div title="我的留言" data-option="closable:true" style="padding:20px; display: none;">
+        <ul>
+            {% for comment in comments %}
+                <li>
+                房屋ID:<a href="/room/{{ comment.room_id }}"> {{ comment.room_id }}</a> <br>
+                留言内容:{{ comment.content }} <br>
+                </li>
+            {% empty %}
+                No comment <br>
+            {% endfor %}
+        </ul>
+        </div>
+    </div>
+</div>
+</body>
+</html>

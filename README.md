@@ -100,7 +100,8 @@
 |detail|varchar(255)|房屋细节|
 |rank|varchar(20)|房屋排名|
 |name|varchar(20)|房屋名称|
-|state|varchar(20)|房屋状态(是否被租)|  
+|state|varchar(20)|房屋状态(1是0否被租)|  
+|status|int|1上架0下架| 
 |floor|int|楼层|
 
 - 订单信息
@@ -112,9 +113,8 @@
 |room_id|varchar(50)|房间id|
 |create_time|date|订单创建时间|
 |rent_time|varchar(20)|租赁时长|  
-|is_over|int|订单状态|(0, 'wait for pay'),(1, 'wait for comment'),(2, 'complete')  
-|status|int|1上架0下架|  
-
+|status|int|订单状态(wait for pay,wait for comment,complete)|  
+|is_over|int|租赁1是0否完成|
 
 - 留言
 

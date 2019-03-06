@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>change password</title>
+</head>
+<body>
+    {{ username }}
+    <form action="change_pwd" method="post">
+        old password: <input type="password" name="oldpwd"><br>
+        new password: <input type="password" name="newpwd"><br>
+        re new password: <input type="password" name="repwd"><br>
+        <input type="submit" value="change pwd">
+    </form>
+    {{ msg }}
+</body>
+</html>

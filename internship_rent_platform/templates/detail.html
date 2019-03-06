@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/details.css' %}"/>
+    <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script>
+        $(function () {
+            var status = true;
+            $("#collection").click(function () {
+                if (status) {
+                    $("#star").attr('src', '../static/images/star_fill.png')
+
+                    status = false;
+                    $("#collection").attr("title", "取消收藏")
+                } else {
+                    $("#star").attr('src', '../static/images/star.png')
+                    status = true;
+                    $("#collection").attr("title", "收藏")
+                }
+            });
+        })
+    </script>
+    <script type="text/javascript"
+            src="https://webapi.amap.com/maps?v=1.4.13&key=eda10b859e802d48c7748294f6154d79"></script>
+</head>
+<body>
+<div class="header">
+    <div class="logo">
+        <a href="/index">
+            <img src="{% static 'images/icon.jpg' %}">
+        </a>
+        <h1>实租网</h1>
+    </div>
+    <div class="header-login">
+        <div class="login">
+            <ul class="login">
+                {% if tel %}
+                    <li class="item"><a href="/user/user_msg">{{ tel }}</a></li>
+                    <li class="item"><a href="/user/logout">EXIT</a></li>
+                {% else %}
+                    <li class="item"><a id="sign" href="/user/login">登录</a></li>
+                    <li class="item"><a href="/user/register">注册</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="node">
+    <a href="/index">首页</a>
+    <a href="#">>{{ room.name }}</a>
+    <hr/>
+</div>
+<div class="content">
+    <div class="house-detail-left">
+        <div class="house-img">
+            {% for image in images %}
+                <img src="{{ image.url }}">
+            {% endfor %}
+        </div>
+    </div>
+    <div class="house-detail-right">
+        <div class="house-name">
+            <h2 id="name">{{ room.name }}</h2>
+            <p id="p1"><span id="addr">{{ room.location }}{{ room.city }}{{ room.district }}</span>
+                <span id="price">${{ room.rent_amount }}</span>
+                <span id="month">/月（季付）</span></p>
+        </div>
+        <p class="house-tag">
+            <span class="subway">离地铁近</span>
+            <span class="balcony">独立阳台</span>
+            <span class="how">押一付三</span>
+        </p>
+        <ul class="detail-house">
+            <li>合租/整租：<label id="fo">{% if room.is_co_rent == '1' %}合租{% else %}整租{% endif %}</label></li>
+            <li>户型：<label id="ty">{{ room.house_type }}</label></li>
+            <li>楼层：<label id="hi">{{ room.floor }}</label></li>
+            <li>状态：<label id="mo">{% if room.state == '1' %}被租{% else %}正在销售{% endif %}</label></li>
+        </ul>
+        <div class="communicate">
+            <div class="sign">
+                <table>
+                    <tr>
+                        <a href="/room/rent_room?roomid={{ room.id }}" title="线上签约">
+                            <img src="{% static 'images/sign.png' %}">
+                        </a>
+                        <a href="#" title="联系房东">
+                            <img src="{% static 'images/phone.png' %}">
+                        </a>
+                        <a href="#" title="收藏" id="collection">
+                            <img src="{% static 'images/star.png' %}" id="star">
+                        </a>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="titleFirst">
+        <h2 class="tm">
+            ▪关于此房源
+        </h2>
+        <div class="first-container">
+            <h3><strong>编号：</strong>{{ room.id }}</h3>
+            <p id="pp">
+                <br>
+                <strong>房源介绍：{{ room.detail }}</strong>
+            </p>
+            <hr>
+        </div>
+    </div>
+    <div class="titleSecond">
+        <h2>
+            ▪房屋配置
+        </h2>
+        <div class="second-container">
+            <table>
+                <tr>
+                    <th>床</th>
+                    <th>衣柜</th>
+                    <th>书桌</th>
+                    <th>WiFi</th>
+                    <th>洗衣机</th>
+                    <th>热水器</th>
+                    <th>空调</th>
+                    <th>微波炉</th>
+                    <th>智能锁</th>
+                </tr>
+                <tr>
+                    <td><label id="1">√</label></td>
+                    <td><label id="2">√</label></td>
+                    <td><label id="3">√</label></td>
+                    <td><label id="4">√</label></td>
+                    <td><label id="5">√</label></td>
+                    <td><label id="6">√</label></td>
+                    <td><label id="7">√</label></td>
+                    <td><label id="8">√</label></td>
+                    <td><label id="9"> </label></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="bottom-gif">
+        <!--<img src="images/move.gif">-->
+    </div>
+    <div class="house-hold-intr">
+        <div class="titleThird">
+            <h2 class="tm">
+                ▪对房东评价
+            </h2>
+            <div class="comment">
+                {% for comment in comments %}
+{#                    <p id="c1">#}
+                        用户ID:{{ comment.user_id }} <br>
+                        评价内容:{{ comment.content }} <br>
+{#                    </p>#}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="footer">
+    <div class="area">
+        <div class="clearfix">
+            <div class="glbLeft">
+                <dl class="fList">
+                    <dt>关于我们</dt>
+                    <dd>
+                        <a href="https://www.baidu.com/s?wd=实租">关于实租</a>
+                        <a href="#">联系实租</a>
+                        <a href="#">加入实租</a>
+                    </dd>
+                </dl>
+                <dl class="fList">
+                    <dt>友情链接</dt>
+                    <dd>
+                        <a href="#">友情链接</a>
+                        <a href="#">友情链接</a>
+                        <a href="#">友情链接</a>
+                        <a href="#">友情链接</a>
+                    </dd>
+                </dl>
+                <dl class="fList">
+                    <dt>关注我们</dt>
+                    <dd>
+                        <a href="#">打赏开发者</a>
+                        <a href="#">下载app</a>
+                    </dd>
+                </dl>
+            </div>
+            <div class="glbRight">
+                <div class="img">
+                    <img src="{% static 'images/icon.jpg' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

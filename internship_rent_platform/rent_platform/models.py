@@ -134,5 +134,10 @@ class Img(models.Model):
     `url` varchar(255),
     primary key (`uuid`) using btree
     '''
-    room_id = models.CharField(max_length=50)
+    room_id = models.IntegerField(null=True)
     url = models.CharField(max_length=255)
+
+
+class UploadImg(models.Model):
+    pic = models.ImageField(upload_to='images/')
+    room_id = models.IntegerField(null=True)
