@@ -83,8 +83,13 @@
             <div class="sign">
                 <table>
                     <tr>
-                        <a href="/room/rent_room?roomid={{ room.id }}" title="线上签约">
+                        {% if room.state == '0' %}
+                            <a href="/room/rent_room?roomid={{ room.id }}" title="线上签约">
                             <img src="{% static 'images/sign.png' %}">
+                        {% else %}
+                            <a href="#" title="线上签约">
+                            <img src="{% static 'images/sign.png' %}">
+                        {% endif %}
                         </a>
                         <a href="#" title="联系房东">
                             <img src="{% static 'images/phone.png' %}">
@@ -151,10 +156,10 @@
             </h2>
             <div class="comment">
                 {% for comment in comments %}
-{#                    <p id="c1">#}
-                        用户ID:{{ comment.user_id }} <br>
-                        评价内容:{{ comment.content }} <br>
-{#                    </p>#}
+                    {#                    <p id="c1">#}
+                    用户ID:{{ comment.user_id }} <br>
+                    评价内容:{{ comment.content }} <br>
+                    {#                    </p>#}
                 {% endfor %}
             </div>
         </div>

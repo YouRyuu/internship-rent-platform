@@ -68,7 +68,7 @@ def change_pwd(request):
         if user_old_pwd_verify:
             user_old_pwd_verify.update(passwd=new_pwd)
         del request.session['isLogin']
-        return redirect('/index')
+        return redirect('/user/login')
     else:
         return render(request, 'personal.html', {'username': request.session.get('nickname')})
 
@@ -218,7 +218,7 @@ def release_rent_msg(request):
         img.room_id = room.id
         img.url = roompic.pic
         img.save()
-        return HttpResponse('release ok!')
+        return redirect('/index')
     release_rooms = Room.objects.filter(user_id=rentee[0].id)
     return render(request, 'rent-host.html', {'release_rooms': release_rooms})
 
@@ -227,10 +227,9 @@ def release_rent_msg(request):
 def update_rent_msg(request, room_id):
     rentee_tel = request.session.get('tel')
     rentee = User.objects.filter(tel=rentee_tel)
-    rentee_nickname = rentee[0].nickname
     room_base_msg_set = Room.objects.filter(user_id=rentee[0].id, id=room_id)
     if len(room_base_msg_set) <= 0:
-        return HttpResponse('no this room!')
+        return HttpResponse('<script>alert("no this room")</script>')
     else:
         room_base_msg = room_base_msg_set[0]
     if request.method == 'POST':
@@ -259,7 +258,7 @@ def update_rent_msg(request, room_id):
         if a == 0:
             return HttpResponse('error')
         else:
-            return HttpResponse('ok')
+            return redirect('/room/release_rent_msg')
     return render(request, 'rooms_operate/update_rent_msg.html', {'room_base_msg': room_base_msg})
 
 
@@ -318,6 +317,11 @@ def rent_room(request):
                 if r.is_over == 0:
                     return HttpResponse('this room is been rent!')
         create_time = time.strftime('%Y-%m-%d', time.localtime(time.time()))
+        # try:
+        room = Room.objects.filter(id=room_id)
+        room.update(state=1)
+        # except:
+        #     return Http404('ERROR')
         order = Order()
         order.room_id = room_id
         order.user_id = user_id
@@ -330,7 +334,7 @@ def rent_room(request):
         room = Room.objects.get(id=room_id)
         rentee_id = room.user_id
         rentee = User.objects.get(id=rentee_id)
-    except Room.DoesNotExist:
+    except:
         return Http404('ERROR')
     return render(request, 'sign.html', {'room': room, 'rentee': rentee, 'user': user})
 
@@ -365,6 +369,9 @@ def exit_rent(request):
             order = order[0]
             order.is_over = 1
             order.save()
+            room = Room.objects.get(id=room_id)
+            room.state = 0
+            room.save()
             return redirect(reverse('show_user_msg'))
         else:
             return HttpResponse("aleady exit this room!")
@@ -421,6 +428,15 @@ def user_comments(request):
     user_id = User.objects.filter(tel=user_tel)[0].id
     comments = Message.objects.filter(user_id=user_id)
     return render(request, 'user_comments.html', {'comments': comments})
+
+@login_required
+def del_room(request, room_id):
+    rentee_tel = request.session.get('tel')
+    rentee = User.objects.filter(tel=rentee_tel)
+    room = Room.objects.filter(user_id=rentee[0].id, id=room_id)
+    a = Room.objects.filter(id=room_id).delete()
+    print(a)
+    return redirect('/room/release_rent_msg')
 
 
 class LoginView(View):

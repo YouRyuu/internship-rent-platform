@@ -24,6 +24,8 @@ urlpatterns = [
     url(r'^room/rent_room$', views.rent_room),
     url(r'^room/exit_rent$', views.exit_rent),
     url(r'^room/room_comment$', views.room_comment),
-    url(r'room/(?P<room_id>\d+)$', views.room_details),
+    url(r'^room/(?P<room_id>\d+)$', views.room_details),
+    url(r'^room/del_room/(?P<room_id>\d+)$', views.del_room),
+
     url(r'^$', views.index),
 ]
